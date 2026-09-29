@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Create Pack</title>
+<meta name="description" content="가진 롬 폴더를 담으면 제목·설명·그림을 채워 RetroBat·Pegasus·ES-DE 가 바로 읽는 모양으로 내보내 주는 Windows 앱이에요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* 색은 앱 화면(style.css)의 토큰을 그대로 쓴다. 호박색은 앱의 경고색이자 설명서 네모칸 색이다. */
+:root{
+  color-scheme:light;
+  --bg:#f3f5f9;--panel:#ffffff;--line:#d8dde6;--text:#1a1d24;--dim:#596170;--accent:#2f6fe0;--accent-ink:#ffffff;
+  --mark:#e3b341;--screen:#16181d;--code:#e9edf4;--shadow:0 2px 4px rgb(20 30 50/.06),0 18px 48px rgb(20 30 50/.12);
+  --f-body:"IBM Plex Sans KR","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+  --f-disp:"Do Hyeon","IBM Plex Sans KR","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",Consolas,"Malgun Gothic",monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--bg:#16181d;--panel:#1d2027;--line:#2b303a;--text:#e6e8ec;--dim:#8b93a1;--accent:#4c8dff;--accent-ink:#0d1220;
+  --screen:#0f1115;--code:#262a33;--shadow:0 2px 4px rgb(0 0 0/.35),0 18px 48px rgb(0 0 0/.4);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--bg:#16181d;--panel:#1d2027;--line:#2b303a;--text:#e6e8ec;--dim:#8b93a1;--accent:#4c8dff;--accent-ink:#0d1220;
+  --screen:#0f1115;--code:#262a33;--shadow:0 2px 4px rgb(0 0 0/.35),0 18px 48px rgb(0 0 0/.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 var(--f-body);padding-inline:16px;word-break:keep-all;overflow-wrap:anywhere}
+img{max-width:100%;display:block}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+code{font:500 .85em var(--f-mono);background:var(--code);padding:.08em .4em;border-radius:4px;white-space:nowrap}
+.wrap{max-width:1160px;margin-inline:auto}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.logo{font:24px/1 var(--f-disp);color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo .dot{width:14px;height:14px;border-radius:3px;background:var(--mark);box-shadow:6px 6px 0 -2px var(--accent)}
+header.top nav{display:flex;gap:18px;font-size:15px}
+header.top nav a{color:var(--dim);text-decoration:none}
+header.top nav a:hover{color:var(--text)}
+
+.hero{padding-block:48px 0}
+.hero .kicker{font:500 13px var(--f-mono);letter-spacing:.06em;color:var(--dim);margin:0 0 14px}
+.hero h1{font:clamp(44px,8vw,96px)/1.02 var(--f-disp);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{font-size:clamp(17px,2vw,20px);max-width:40ch;margin:22px 0 28px;color:var(--text)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn:hover{filter:brightness(1.08)}
+
+/* 첫 화면 — 설명서와 같은 번호 네모칸을 앱 화면 위에 얹는다 */
+.screen{margin-top:56px;background:var(--screen);border-radius:14px;padding:clamp(8px,1.4vw,16px);box-shadow:var(--shadow);border:1px solid var(--line)}
+.stage{position:relative;aspect-ratio:1680/900}
+.stage img{width:100%;height:auto;border-radius:6px}
+.box{position:absolute;border:2px solid var(--mark);border-radius:6px;background:rgb(227 179 65/.05)}
+.box span{position:absolute;left:8px;top:8px;display:inline-flex;align-items:center;gap:6px;background:var(--mark);color:#1a1d24;font:600 12px/1 var(--f-body);padding:5px 9px 5px 5px;border-radius:999px;white-space:nowrap;box-shadow:0 0 0 2px #16181d}
+.box span b{font:600 11px/18px var(--f-mono);background:#1a1d24;color:var(--mark);border-radius:50%;width:18px;height:18px;text-align:center}
+.b1{left:0;top:0;width:100%;height:5.11%}
+.b1 span{left:auto;right:0;top:auto;bottom:calc(100% + 24px)}
+.b2{left:0;top:5.11%;width:25.6%;height:94.89%}
+.b3{left:25.6%;top:5.11%;width:47.02%;height:94.89%}
+.b4{left:72.62%;top:5.11%;width:27.38%;height:94.89%}
+.shot-note{font-size:13px;color:var(--dim);margin:12px 4px 0}
+
+/* 읽고 쓰는 파일 — 이 앱의 결과물은 결국 이 파일 이름들이다 */
+.formats{margin-top:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-block:1px solid var(--line)}
+.formats div{padding:22px 20px 22px 0}
+.formats div+div{border-left:1px solid var(--line);padding-left:20px}
+.formats code{font-size:15px}
+.formats p{margin:8px 0 0;color:var(--dim);font-size:14.5px}
+
+h2{font:clamp(30px,4vw,44px)/1.15 var(--f-disp);margin:0 0 10px;text-wrap:balance}
+.sec{padding-top:96px}
+.sec>.sub{color:var(--dim);max-width:60ch;margin:0 0 36px}
+
+/* 세 단계 — 실제로 이 순서로 쓴다 */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;counter-reset:s}
+.step{counter-increment:s;display:flex;flex-direction:column;gap:14px}
+.step .pic{background:var(--screen);border-radius:12px;padding:10px;border:1px solid var(--line);aspect-ratio:4/3;overflow:hidden}
+.step .pic img{width:100%;height:100%;object-fit:cover;object-position:left top;border-radius:4px}
+.step h3{margin:0;font-size:20px;font-weight:600;display:flex;align-items:baseline;gap:10px}
+.step h3::before{content:counter(s);font:500 14px var(--f-mono);color:var(--mark);border:1.5px solid var(--mark);border-radius:50%;width:28px;height:28px;display:inline-grid;place-items:center;flex:none;transform:translateY(-2px)}
+.step p{margin:0;color:var(--dim)}
+
+.more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card .pic{background:var(--screen);aspect-ratio:16/9;overflow:hidden}
+.card .pic img{width:100%;height:100%;object-fit:cover;object-position:left top}
+.card div{padding:18px 20px 20px}
+.card h3{margin:0 0 6px;font-size:18px;font-weight:600}
+.card p{margin:0;color:var(--dim);font-size:15px}
+
+.facts{margin-top:96px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,4vw,40px)}
+.facts h2{font-size:clamp(26px,3vw,34px)}
+.facts ul{margin:0;padding-left:1.1em;display:grid;gap:10px}
+.facts li::marker{color:var(--mark)}
+.facts .big{font:clamp(22px,2.6vw,28px)/1.35 var(--f-disp);margin:0;text-wrap:balance}
+
+.end{padding-block:96px 40px;text-align:left}
+.end p{color:var(--dim);max-width:52ch;margin:0 0 24px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim);font-size:13.5px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+@media (max-width:900px){
+  .steps,.more{grid-template-columns:minmax(0,1fr)}
+  .step .pic{aspect-ratio:16/10}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .formats div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}
+}
+@media (max-width:560px){
+  header.top nav{gap:12px;font-size:14px}
+  .box span{font-size:10.5px;padding:3px 7px 3px 3px;left:4px;top:4px}
+  .box span b{width:15px;height:15px;line-height:15px;font-size:10px}
+  .b1 span{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="logo" href="./"><span class="dot" aria-hidden="true"></span>Create Pack</a>
+  <nav aria-label="바로 가기"><a href="#how">쓰는 법</a><a href="#more">기능</a><a href="manual.html">설명서</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <p class="kicker">RetroBat · Pegasus · ES-DE 용 · Windows</p>
+  <h1>가진 롬을,<br><em>팩 하나로.</em></h1>
+  <p class="lead">롬 폴더를 담으면 제목·설명·그림을 채워, 프론트엔드가 바로 읽는 모양으로 PC 폴더와 안드로이드 기기에 내보내요.</p>
+  <div class="cta">
+    <a class="btn" href="manual.html">사용 설명서 보기</a>
+    <a class="btn ghost" href="#how">어떻게 쓰나요</a>
+  </div>
+  <div class="screen">
+    <div class="stage">
+      <img src="assets/overview.webp" alt="Create Pack 메인 창. 왼쪽 시스템 목록, 가운데 게임 표, 오른쪽에 고른 게임의 표지와 설명이 보인다." width="2520" height="1350">
+      <div class="box b1"><span><b>1</b>팩 열기 · 내보내기 · 한글패치</span></div>
+      <div class="box b2"><span><b>2</b>시스템</span></div>
+      <div class="box b3"><span><b>3</b>게임 표</span></div>
+      <div class="box b4"><span><b>4</b>표지 · 정보</span></div>
+    </div>
+  </div>
+  <p class="shot-note">화면 속 게임과 그림은 설명을 위해 지어낸 예시예요.</p>
+
+  <div class="formats">
+    <div><code>gamelist.xml</code><p>RetroBat · Batocera · ROCKNIX 가 읽는 목록</p></div>
+    <div><code>metadata.pegasus.txt</code><p>Pegasus 목록 — 안드로이드 실행 명령까지</p></div>
+    <div><code>ES-DE</code><p>폴더로 보내면 ES-DE 가 읽는 모양으로</p></div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <h2>담고, 채우고, 내보내요</h2>
+  <p class="sub">팩은 <code>library.json</code> 이 든 폴더 하나예요. 롬은 <code>roms/&lt;시스템&gt;/</code>, 그림은 <code>media/</code> 에 모여요.</p>
+  <div class="steps">
+    <article class="step">
+      <div class="pic"><img src="assets/sysadd.webp" alt="시스템 추가 창" loading="lazy" width="690" height="650"></div>
+      <h3>시스템째 담기</h3>
+      <p>롬 폴더를 고르면 시스템 하나로 담고, 메타 DB 로 제목과 그림을 저절로 맞춰요. 팩 밖 폴더는 원본을 그대로 두고 복사해 와요.</p>
+    </article>
+    <article class="step">
+      <div class="pic"><img src="assets/editor.webp" alt="게임 메타 편집 창" loading="lazy" width="1770" height="1136"></div>
+      <h3>빈 칸 채우기</h3>
+      <p>후보를 골라 한 게임씩 고치거나, 시스템 전체를 일괄로 채워요. 메타 DB 에 없으면 ScreenScraper 나 AI(Gemini)에게 물어봐요.</p>
+    </article>
+    <article class="step">
+      <div class="pic"><img src="assets/export-folder.webp" alt="내보내기 창" loading="lazy" width="1770" height="1167"></div>
+      <h3>내보내기</h3>
+      <p>팩 제자리에 목록만 만들거나, 롬·그림까지 폴더 · SFTP · 안드로이드 USB 로 보내요. 체크한 게임만 보낼 수도 있어요.</p>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="more">
+  <h2>그 밖에</h2>
+  <p class="sub">팩을 오래 다듬을 때 쓰는 도구들이에요.</p>
+  <div class="more">
+    <article class="card">
+      <div class="pic"><img src="assets/img.webp" alt="그림 편집 창" loading="lazy" width="1920" height="941"></div>
+      <div><h3>그림 편집</h3><p>파일이나 주소로 가져와 자르고, 배경을 투명하게 지우고, 사진 속 박스를 똑바로 펴서 팩에 넣어요.</p></div>
+    </article>
+    <article class="card">
+      <div class="pic"><img src="assets/setup.webp" alt="기기 설정 창" loading="lazy" width="1770" height="518"></div>
+      <div><h3>기기 설정 옮기기</h3><p>안드로이드 기기의 Pegasus·에뮬레이터 설정 폴더를 팩에 저장해 두고, 새 기기에 그대로 넣어요.</p></div>
+    </article>
+    <article class="card">
+      <div class="pic"><img src="assets/kr-list.webp" alt="한글패치 목록 창" loading="lazy" width="2016" height="1215"></div>
+      <div><h3>한글패치</h3><p>받은 패치를 게임 폴더로 모으고, 원본 롬에 구워 <code>(k)</code> 판을 만들어요. xdelta·bps·ips, 압축 안의 패치도요.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="facts">
+  <p class="big">게임 파일 · BIOS · 열쇠는 들어 있지 않아요.</p>
+  <ul>
+    <li>Create Pack 은 <b>직접 가진 파일</b>을 정리하는 도구예요. 롬이나 BIOS 를 받아 주지 않아요.</li>
+    <li>한글패치도 목록과 정리만 도와요. 패치는 배포처에서 직접 받아요.</li>
+    <li>ScreenScraper 계정과 Gemini 키는 본인 것을 넣어 써요.</li>
+    <li>지금은 소개와 설명서만 올려 두었어요.</li>
+  </ul>
+</section>
+
+<section class="end">
+  <h2>창마다 무엇을 하는지</h2>
+  <p>설명서에 모든 창의 화면을 싣고, 단추마다 번호 네모칸을 붙여 풀어 두었어요.</p>
+  <a class="btn" href="manual.html">사용 설명서 보기</a>
+</section>
+</main>
+
+<footer>
+  <span>Create Pack · Leedius</span>
+  <span>화면은 예시 팩으로 찍었어요 · 2026-09</span>
+</footer>
+</div>
+</body>
+</html>
