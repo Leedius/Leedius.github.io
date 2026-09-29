@@ -58,11 +58,11 @@ header.top nav a:hover{color:var(--text)}
 .box{position:absolute;border:2px solid var(--mark);border-radius:6px;background:rgb(227 179 65/.05)}
 .box span{position:absolute;left:8px;top:8px;display:inline-flex;align-items:center;gap:6px;background:var(--mark);color:#1a1d24;font:600 12px/1 var(--f-body);padding:5px 9px 5px 5px;border-radius:999px;white-space:nowrap;box-shadow:0 0 0 2px #16181d}
 .box span b{font:600 11px/18px var(--f-mono);background:#1a1d24;color:var(--mark);border-radius:50%;width:18px;height:18px;text-align:center}
-.b1{left:0;top:0;width:100%;height:5.11%}
+.b1{left:0;top:0;width:100%;height:4.9%}
 .b1 span{left:auto;right:0;top:auto;bottom:calc(100% + 24px)}
-.b2{left:0;top:5.11%;width:25.6%;height:94.89%}
-.b3{left:25.6%;top:5.11%;width:47.02%;height:94.89%}
-.b4{left:72.62%;top:5.11%;width:27.38%;height:94.89%}
+.b2{left:0;top:4.9%;width:14.15%;height:95.1%}
+.b3{left:14.15%;top:4.9%;width:58.73%;height:95.1%}
+.b4{left:72.88%;top:4.9%;width:27.12%;height:95.1%}
 .shot-note{font-size:13px;color:var(--dim);margin:12px 4px 0}
 
 /* 읽고 쓰는 파일 — 이 앱의 결과물은 결국 이 파일 이름들이다 */
@@ -114,6 +114,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
   .box span{font-size:10.5px;padding:3px 7px 3px 3px;left:4px;top:4px}
   .box span b{width:15px;height:15px;line-height:15px;font-size:10px}
   .b1 span{display:none}
+  .b2 span{font-size:0;padding:3px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -136,7 +137,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
   </div>
   <div class="screen">
     <div class="stage">
-      <img src="assets/overview.webp" alt="Create Pack 메인 창. 왼쪽 시스템 목록, 가운데 게임 표, 오른쪽에 고른 게임의 표지와 설명이 보인다." width="2520" height="1350">
+      <img src="assets/overview.webp" alt="Create Pack 메인 창. 왼쪽 시스템 목록, 가운데 게임 표, 오른쪽에 고른 게임의 표지와 설명이 보인다." width="2544" height="1409">
       <div class="box b1"><span><b>1</b>팩 열기 · 내보내기 · 한글패치</span></div>
       <div class="box b2"><span><b>2</b>시스템</span></div>
       <div class="box b3"><span><b>3</b>게임 표</span></div>
@@ -157,17 +158,17 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
   <p class="sub">팩은 <code>library.json</code> 이 든 폴더 하나예요. 롬은 <code>roms/&lt;시스템&gt;/</code>, 그림은 <code>media/</code> 에 모여요.</p>
   <div class="steps">
     <article class="step">
-      <div class="pic"><img src="assets/sysadd.webp" alt="시스템 추가 창" loading="lazy" width="690" height="650"></div>
+      <div class="pic"><img src="assets/sysadd.webp" alt="시스템 추가 창" loading="lazy" width="780" height="783"></div>
       <h3>시스템째 담기</h3>
-      <p>롬 폴더를 고르면 시스템 하나로 담고, 메타 DB 로 제목과 그림을 저절로 맞춰요. 팩 밖 폴더는 원본을 그대로 두고 복사해 와요.</p>
+      <p>롬 폴더를 고르면 시스템 하나로 담아요. 폴더에 <code>gamelist.xml</code>·<code>metadata.pegasus.txt</code> 가 있으면 제목·설명·그림도 같이 가져와요. 팩 밖 폴더는 원본을 그대로 두고 복사해 와요.</p>
     </article>
     <article class="step">
-      <div class="pic"><img src="assets/editor.webp" alt="게임 메타 편집 창" loading="lazy" width="1770" height="1136"></div>
+      <div class="pic"><img src="assets/editor.webp" alt="게임 메타 편집 창" loading="lazy" width="1770" height="1178"></div>
       <h3>빈 칸 채우기</h3>
-      <p>후보를 골라 한 게임씩 고치거나, 시스템 전체를 일괄로 채워요. 메타 DB 에 없으면 ScreenScraper 나 AI(Gemini)에게 물어봐요.</p>
+      <p>ScreenScraper·libretro 에서 찾은 후보를 골라 한 게임씩 고치거나, AI(Gemini)로 시스템의 빈 칸을 한꺼번에 채워요. ScreenScraper 와 Gemini 는 본인 계정·키로 써요.</p>
     </article>
     <article class="step">
-      <div class="pic"><img src="assets/export-folder.webp" alt="내보내기 창" loading="lazy" width="1770" height="1167"></div>
+      <div class="pic"><img src="assets/export-folder.webp" alt="내보내기 창" loading="lazy" width="1770" height="1268"></div>
       <h3>내보내기</h3>
       <p>팩 제자리에 목록만 만들거나, 롬·그림까지 폴더 · SFTP · 안드로이드 USB 로 보내요. 체크한 게임만 보낼 수도 있어요.</p>
     </article>
@@ -179,15 +180,15 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
   <p class="sub">팩을 오래 다듬을 때 쓰는 도구들이에요.</p>
   <div class="more">
     <article class="card">
-      <div class="pic"><img src="assets/img.webp" alt="그림 편집 창" loading="lazy" width="1920" height="941"></div>
+      <div class="pic"><img src="assets/img.webp" alt="그림 편집 창" loading="lazy" width="1920" height="939"></div>
       <div><h3>그림 편집</h3><p>파일이나 주소로 가져와 자르고, 배경을 투명하게 지우고, 사진 속 박스를 똑바로 펴서 팩에 넣어요.</p></div>
     </article>
     <article class="card">
-      <div class="pic"><img src="assets/setup.webp" alt="기기 설정 창" loading="lazy" width="1770" height="518"></div>
+      <div class="pic"><img src="assets/setup.webp" alt="기기 설정 창" loading="lazy" width="1770" height="812"></div>
       <div><h3>기기 설정 옮기기</h3><p>안드로이드 기기의 Pegasus·에뮬레이터 설정 폴더를 팩에 저장해 두고, 새 기기에 그대로 넣어요.</p></div>
     </article>
     <article class="card">
-      <div class="pic"><img src="assets/kr-list.webp" alt="한글패치 목록 창" loading="lazy" width="2016" height="1215"></div>
+      <div class="pic"><img src="assets/kr-list.webp" alt="한글패치 목록 창" loading="lazy" width="2100" height="1268"></div>
       <div><h3>한글패치</h3><p>받은 패치를 게임 폴더로 모으고, 원본 롬에 구워 <code>(k)</code> 판을 만들어요. xdelta·bps·ips, 압축 안의 패치도요.</p></div>
     </article>
   </div>
