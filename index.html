@@ -250,7 +250,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
 <!-- 의견 보내기 창. action 은 Cloudflare Worker 주소, data-sitekey 는 Turnstile 공개 키다(둘 다 비밀이 아니다).
      봇 토큰은 Worker 에만 있다 — 이 저장소가 공개라서 페이지에 두면 누구나 가져간다. -->
 <dialog id="feedback" aria-labelledby="fb-title">
-  <form id="fb-form" action="" method="post">
+  <form id="fb-form" action="https://create-pack-feedback.createpack.workers.dev/" method="post">
     <h2 id="fb-title">의견 보내기</h2>
     <p class="note">버그나 바라는 점을 적어 주세요. 개발자 텔레그램으로 바로 가요. 답장은 드리지 못해요.</p>
     <fieldset>
@@ -262,7 +262,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
     <label class="field"><span>내용</span>
       <textarea name="text" required maxlength="3000" placeholder="어느 창에서 무엇을 눌렀더니 어떻게 됐는지 적어 주면 고치기 쉬워요."></textarea>
     </label>
-    <div class="cf-turnstile" data-sitekey=""></div>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAFJvJM4DCD_cW4gq"></div>
     <p class="note">글은 Cloudflare 와 Telegram 을 거쳐 전달돼요. 이름·이메일·폴더 경로 같은 개인 정보는 빼고 적어 주세요.</p>
     <p id="fb-status" role="status"></p>
     <div class="actions">
