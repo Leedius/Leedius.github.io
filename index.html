@@ -13,17 +13,17 @@
 :root{
   color-scheme:light;
   --bg:#f3f5f9;--panel:#ffffff;--line:#d8dde6;--text:#1a1d24;--dim:#596170;--accent:#2f6fe0;--accent-ink:#ffffff;
-  --mark:#e3b341;--screen:#16181d;--code:#e9edf4;--shadow:0 2px 4px rgb(20 30 50/.06),0 18px 48px rgb(20 30 50/.12);
+  --mark:#e3b341;--bad:#c0392b;--screen:#16181d;--code:#e9edf4;--shadow:0 2px 4px rgb(20 30 50/.06),0 18px 48px rgb(20 30 50/.12);
   --f-body:"IBM Plex Sans KR","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
   --f-disp:"Do Hyeon","IBM Plex Sans KR","Malgun Gothic",sans-serif;
   --f-mono:"IBM Plex Mono",Consolas,"Malgun Gothic",monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  color-scheme:dark;--bg:#16181d;--panel:#1d2027;--line:#2b303a;--text:#e6e8ec;--dim:#8b93a1;--accent:#4c8dff;--accent-ink:#0d1220;
+  color-scheme:dark;--bg:#16181d;--panel:#1d2027;--line:#2b303a;--text:#e6e8ec;--dim:#8b93a1;--accent:#4c8dff;--accent-ink:#0d1220;--bad:#ff7b72;
   --screen:#0f1115;--code:#262a33;--shadow:0 2px 4px rgb(0 0 0/.35),0 18px 48px rgb(0 0 0/.4);
 }}
 :root[data-theme="dark"]{
-  color-scheme:dark;--bg:#16181d;--panel:#1d2027;--line:#2b303a;--text:#e6e8ec;--dim:#8b93a1;--accent:#4c8dff;--accent-ink:#0d1220;
+  color-scheme:dark;--bg:#16181d;--panel:#1d2027;--line:#2b303a;--text:#e6e8ec;--dim:#8b93a1;--accent:#4c8dff;--accent-ink:#0d1220;--bad:#ff7b72;
   --screen:#0f1115;--code:#262a33;--shadow:0 2px 4px rgb(0 0 0/.35),0 18px 48px rgb(0 0 0/.4);
 }
 *{box-sizing:border-box}
@@ -31,7 +31,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 var(--f-body);padding-inline:16px;word-break:keep-all;overflow-wrap:anywhere}
 img{max-width:100%;display:block}
 a{color:var(--accent)}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 code{font:500 .85em var(--f-mono);background:var(--code);padding:.08em .4em;border-radius:4px;white-space:nowrap}
 .wrap{max-width:1160px;margin-inline:auto}
 header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
@@ -40,6 +40,11 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:16p
 header.top nav{display:flex;gap:18px;font-size:15px}
 header.top nav a{color:var(--dim);text-decoration:none}
 header.top nav a:hover{color:var(--text)}
+header.top nav button{background:none;border:0;padding:0;font:inherit;color:var(--dim);cursor:pointer}
+/* 메뉴가 넷이라 좁은 화면에서는 글자를 쪼개지 말고 메뉴 줄째로 로고 아래로 내린다 */
+header.top{flex-wrap:wrap}
+.logo,header.top nav>*{white-space:nowrap}
+header.top nav button:hover{color:var(--text)}
 
 .hero{padding-block:48px 0}
 .hero .kicker{font:500 13px var(--f-mono);letter-spacing:.06em;color:var(--dim);margin:0 0 14px}
@@ -50,6 +55,8 @@ header.top nav a:hover{color:var(--text)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
 .btn:hover{filter:brightness(1.08)}
+button.btn{border:0;cursor:pointer;font-family:inherit;font-size:inherit;line-height:inherit}
+button.btn:disabled{opacity:.6;cursor:default;filter:none}
 
 /* 첫 화면 — 설명서와 같은 번호 네모칸을 앱 화면 위에 얹는다 */
 .screen{margin-top:56px;background:var(--screen);border-radius:14px;padding:clamp(8px,1.4vw,16px);box-shadow:var(--shadow);border:1px solid var(--line)}
@@ -103,6 +110,23 @@ h2{font:clamp(30px,4vw,44px)/1.15 var(--f-disp);margin:0 0 10px;text-wrap:balanc
 .end p{color:var(--dim);max-width:52ch;margin:0 0 24px}
 footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim);font-size:13.5px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 
+/* 의견 보내기 창 — 글은 Cloudflare Worker 를 거쳐 개발자 텔레그램으로 간다 */
+#feedback{width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,28px);box-shadow:var(--shadow)}
+#feedback::backdrop{background:rgb(10 12 16/.55)}
+#feedback h2{font-size:28px}
+#feedback form{display:grid;gap:14px}
+#feedback .note{margin:0;color:var(--dim);font-size:14px}
+#feedback fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+#feedback legend{font-weight:600;padding:0;margin-bottom:6px;width:100%}
+#feedback label{display:inline-flex;align-items:center;gap:6px}
+#feedback textarea{width:100%;min-height:9em;resize:vertical;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+#feedback textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+#feedback .field{display:grid;gap:6px}
+#feedback .field>span{font-weight:600}
+#fb-status{margin:0;min-height:1.7em;font-size:14.5px}
+#fb-status.bad{color:var(--bad)}
+#feedback .actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+
 @media (max-width:900px){
   .steps,.more{grid-template-columns:minmax(0,1fr)}
   .step .pic{aspect-ratio:16/10}
@@ -123,7 +147,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
 <div class="wrap">
 <header class="top">
   <a class="logo" href="./"><span class="dot" aria-hidden="true"></span>Create Pack</a>
-  <nav aria-label="바로 가기"><a href="#how">쓰는 법</a><a href="#more">기능</a><a href="manual.html">설명서</a></nav>
+  <nav aria-label="바로 가기"><a href="#how">쓰는 법</a><a href="#more">기능</a><a href="manual.html">설명서</a><button type="button" data-feedback>의견 보내기</button></nav>
 </header>
 
 <main>
@@ -212,6 +236,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
   <div class="cta">
     <a class="btn" href="https://github.com/Leedius/Leedius.github.io/releases/latest/download/CreatePack.exe">Windows 용 내려받기</a>
     <a class="btn ghost" href="manual.html">사용 설명서 보기</a>
+    <button type="button" class="btn ghost" data-feedback>의견 보내기</button>
   </div>
 </section>
 </main>
@@ -221,5 +246,77 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
   <span>화면은 예시 팩으로 찍었어요 · 2026-09</span>
 </footer>
 </div>
+
+<!-- 의견 보내기 창. action 은 Cloudflare Worker 주소, data-sitekey 는 Turnstile 공개 키다(둘 다 비밀이 아니다).
+     봇 토큰은 Worker 에만 있다 — 이 저장소가 공개라서 페이지에 두면 누구나 가져간다. -->
+<dialog id="feedback" aria-labelledby="fb-title">
+  <form id="fb-form" action="https://create-pack-feedback.createpack.workers.dev/" method="post">
+    <h2 id="fb-title">의견 보내기</h2>
+    <p class="note">버그나 바라는 점을 적어 주세요. 개발자 텔레그램으로 바로 가요. 답장은 드리지 못해요.</p>
+    <fieldset>
+      <legend>종류</legend>
+      <label><input type="radio" name="kind" value="bug" checked> 버그</label>
+      <label><input type="radio" name="kind" value="idea"> 제안</label>
+      <label><input type="radio" name="kind" value="etc"> 기타</label>
+    </fieldset>
+    <label class="field"><span>내용</span>
+      <textarea name="text" required maxlength="3000" placeholder="어느 창에서 무엇을 눌렀더니 어떻게 됐는지 적어 주면 고치기 쉬워요."></textarea>
+    </label>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAFJvJM4DCD_cW4gq"></div>
+    <p class="note">글은 Cloudflare 와 Telegram 을 거쳐 전달돼요. 이름·이메일·폴더 경로 같은 개인 정보는 빼고 적어 주세요.</p>
+    <p id="fb-status" role="status"></p>
+    <div class="actions">
+      <button type="button" class="btn ghost" data-close>닫기</button>
+      <button type="submit" class="btn">보내기</button>
+    </div>
+  </form>
+</dialog>
+<script>
+// 의견 보내기 — 창을 처음 열 때 Turnstile(사람 확인) 스크립트를 불러 방문자마다 Cloudflare 를 부르지 않게 한다.
+// 보낼 때는 FormData 를 그대로 Worker 로 보낸다. 위젯이 폼 안에 cf-turnstile-response 칸을 스스로 넣는다.
+(() => {
+  const dialog = document.getElementById('feedback');
+  const form = document.getElementById('fb-form');
+  const status = document.getElementById('fb-status');
+  const send = form.querySelector('[type=submit]');
+  const say = (text, bad = false) => { status.textContent = text; status.className = bad ? 'bad' : ''; };
+
+  document.querySelectorAll('[data-feedback]').forEach((b) => b.addEventListener('click', () => {
+    say('');
+    dialog.showModal();
+    if (!document.getElementById('ts-api')) {
+      // 보통 위젯은 300px 이라 아주 좁은 화면에서는 창 밖으로 나간다. 그때는 작은 위젯(150px)을 쓴다.
+      if (innerWidth < 380) form.querySelector('.cf-turnstile').dataset.size = 'compact';
+      const s = document.createElement('script');
+      s.id = 'ts-api';
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      // 실패한 태그를 지워야 창을 다시 열 때 새로 불러온다.
+      s.onerror = () => { s.remove(); say('사람 확인을 불러오지 못했어요. 잠시 뒤 창을 다시 열어 주세요.', true); };
+      document.head.append(s);
+    }
+  }));
+  dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    if (!data.get('cf-turnstile-response')) { say('사람 확인이 끝나면 다시 눌러 주세요.', true); return; }
+    send.disabled = true;
+    say('보내는 중…');
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: data });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      say('보냈어요. 고마워요!');
+    } catch {
+      say('보내지 못했어요. 잠시 뒤 다시 눌러 주세요.', true);
+    } finally {
+      send.disabled = false;
+      // 확인 토큰은 한 번만 쓸 수 있어서 보낼 때마다 새로 받는다.
+      window.turnstile?.reset();
+    }
+  });
+})();
+</script>
 </body>
 </html>
