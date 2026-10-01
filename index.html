@@ -41,7 +41,7 @@ header.top nav{display:flex;gap:18px;font-size:15px}
 header.top nav a{color:var(--dim);text-decoration:none}
 header.top nav a:hover{color:var(--text)}
 header.top nav button{background:none;border:0;padding:0;font:inherit;color:var(--dim);cursor:pointer}
-/* 메뉴가 넷이라 좁은 화면에서는 글자를 쪼개지 말고 메뉴 줄째로 로고 아래로 내린다 */
+/* 메뉴가 다섯이라 좁은 화면에서는 글자를 쪼개지 말고 메뉴 줄째로 로고 아래로 내린다 */
 header.top{flex-wrap:wrap}
 .logo,header.top nav>*{white-space:nowrap}
 header.top nav button:hover{color:var(--text)}
@@ -134,7 +134,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
   .formats div+div{border-left:0;padding-left:0;border-top:1px solid var(--line)}
 }
 @media (max-width:560px){
-  header.top nav{gap:12px;font-size:14px}
+  header.top nav{gap:4px 12px;font-size:14px;flex-wrap:wrap}
   .box span{font-size:10.5px;padding:3px 7px 3px 3px;left:4px;top:4px}
   .box span b{width:15px;height:15px;line-height:15px;font-size:10px}
   .b1 span{display:none}
@@ -147,7 +147,7 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--dim)
 <div class="wrap">
 <header class="top">
   <a class="logo" href="./"><span class="dot" aria-hidden="true"></span>Create Pack</a>
-  <nav aria-label="바로 가기"><a href="#how">쓰는 법</a><a href="#more">기능</a><a href="manual.html">설명서</a><button type="button" data-feedback>의견 보내기</button></nav>
+  <nav aria-label="바로 가기"><a href="#how">쓰는 법</a><a href="#more">기능</a><a href="manual.html">설명서</a><a href="updates.html">업데이트 내역</a><button type="button" data-feedback>의견 보내기</button></nav>
 </header>
 
 <main>
