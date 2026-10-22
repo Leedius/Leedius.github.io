@@ -278,6 +278,18 @@ header.top nav a[aria-current] {
   width: 100%;
   height: auto;
 }
+/* 설명서 한글패치 장의 사용법 영상 — 그림 판 안에 폭을 맞춰 16:9 를 지킨다 */
+.vid {
+  margin: 0 0 24px;
+}
+.vid video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.vid figcaption {
+  margin-top: 10px;
+}
 
 /* 설명서 네모칸 — 그림 위 자리는 shots.json 의 값을 % 로 바꿔 --x --y --w --h 로 준다 */
 .stage {
