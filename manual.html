@@ -101,12 +101,13 @@ table.list tr:last-child td{border-bottom:0}
     <li><a href="#add"><span class="ch">2</span>게임 담기</a>
       <ol><li><a href="#s-sysadd">기종째 담기</a></li><li><a href="#s-addgame">몇 개만 넣기</a></li><li><a href="#s-rescan">폴더 다시 읽기</a></li><li><a href="#s-list">목록 다루기</a></li><li><a href="#s-trash">휴지통</a></li></ol></li>
     <li><a href="#fill"><span class="ch">3</span>제목·그림 채우기</a>
-      <ol><li><a href="#s-drawer">상세 서랍</a></li><li><a href="#s-editor">한 게임씩 고치기</a></li><li><a href="#s-img">그림 손보기</a></li><li><a href="#s-bulk">기종째 스크래핑</a></li><li><a href="#s-ai">AI로 채우기</a></li><li><a href="#s-loc">그림 속 글자 한글화</a></li><li><a href="#s-video">영상 넣기</a></li></ol></li>
+      <ol><li><a href="#s-drawer">상세 서랍</a></li><li><a href="#s-editor">한 게임씩 고치기</a></li><li><a href="#s-img">그림 손보기</a></li><li><a href="#s-bulk">ScreenScraper · libretro 로 채우기</a></li><li><a href="#s-ai">AI로 빈 칸 채우기</a></li><li><a href="#s-loc">그림 속 글자 한글화</a></li><li><a href="#s-video">영상 넣기</a></li><li><a href="#s-um">사용자 그림</a></li></ol></li>
     <li><a href="#kr"><span class="ch">4</span>한글패치</a>
       <ol><li><a href="#s-kr">한글패치 창</a></li><li><a href="#s-krget">받기</a></li><li><a href="#s-krapply">패치 걸기</a></li><li><a href="#s-krmore">그 밖에</a></li></ol></li>
     <li><a href="#export"><span class="ch">5</span>기기로 보내기</a>
       <ol><li><a href="#s-export">내보내기</a></li><li><a href="#s-copy">롬·그림 복사</a></li><li><a href="#s-merge">기기 메타에 보태기</a></li><li><a href="#s-setup">기기 설정 옮기기</a></li></ol></li>
-    <li><a href="#settings"><span class="ch">6</span>설정·업데이트</a></li>
+    <li><a href="#settings"><span class="ch">6</span>설정·업데이트</a>
+      <ol><li><a href="#s-settings">설정 창</a></li><li><a href="#s-account">계정</a></li></ol></li>
     <li><a href="#notes"><span class="ch">7</span>알아 둘 것</a></li>
   </ol>
 </details>
@@ -129,6 +130,7 @@ table.list tr:last-child td{border-bottom:0}
   <li>서명하지 않은 파일이라 Windows 가 「PC 보호」 창을 띄우면 「추가 정보 → 실행」 을 눌러요.</li>
   <li>exe 옆에 둘 파일은 없어요. 계정과 키는 켠 뒤 오른쪽 위 톱니바퀴 「설정」 에서 넣어요(<a href="#settings">6장</a>).</li>
   <li>새 판이 나오면 켤 때 물어요. 「확인」 을 누르면 받아서 스스로 갈아끼워요.</li>
+  <li>앱은 한 번에 하나만 떠요. 켜져 있는데 exe 를 또 누르면 새 창 대신 먼저 켠 창이 앞으로 와요.</li>
 </ul>
 </div>
 
@@ -147,16 +149,17 @@ table.list tr:last-child td{border-bottom:0}
 <div class="sec" id="s-screen">
 <h3>화면 한눈에</h3>
 <figure class="fig" id="fig-overview">
-<div class="screen"><div class="stage"><img src="assets/manual/overview.webp" alt="Create Pack 메인 창. 위에 머리줄, 그 아래 기종 카드 선반, 가운데 표지 격자, 아래에 고른 게임의 상세 서랍이 있다." width="1680" height="900"><span class="box" data-n="1" style="--x:0.00%;--y:0.00%;--w:100.00%;--h:6.00%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:0.00%;--y:6.00%;--w:100.00%;--h:12.00%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:0.00%;--y:18.00%;--w:100.00%;--h:49.78%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:0.00%;--y:67.78%;--w:100.00%;--h:32.22%"><span class="num">4</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>머리줄</b> 팩 메뉴 · 휴지통 · 기기 설정 · 한글패치 · 내보내기 · 설정.</span></li><li data-n="2"><span class="num">2</span><span><b>기종 선반</b> 팩에 담은 기종이에요. 카드를 누르면 아래 목록이 그 기종 게임으로 바뀌어요.</span></li><li data-n="3"><span class="num">3</span><span><b>게임 목록</b> 표로 보거나 표지로 봐요. 누른 게임이 아래 서랍에 떠요.</span></li><li data-n="4"><span class="num">4</span><span><b>상세 서랍</b> 고른 게임의 그림 · 정보 · 설명이에요. 메타 편집과 그림 편집을 여기서 열어요.</span></li></ol><a class="zoom" href="assets/manual/overview.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/overview.webp" alt="Create Pack 메인 창. 위에 머리줄, 그 아래 기종 카드 선반, 가운데 표지 격자, 아래에 고른 게임의 상세 서랍이 있다." width="1680" height="900"><span class="box" data-n="1" style="--x:0.00%;--y:0.00%;--w:100.00%;--h:6.00%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:0.00%;--y:6.00%;--w:100.00%;--h:11.92%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:0.00%;--y:17.92%;--w:100.00%;--h:49.86%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:0.00%;--y:67.78%;--w:100.00%;--h:32.22%"><span class="num">4</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>머리줄</b> 팩 메뉴 · 휴지통 · 기기 메뉴 · 한글패치 · 내보내기 · 설정.</span></li><li data-n="2"><span class="num">2</span><span><b>기종 선반</b> 팩에 담은 기종이에요. 카드를 누르면 아래 목록이 그 기종 게임으로 바뀌어요.</span></li><li data-n="3"><span class="num">3</span><span><b>게임 목록</b> 표로 보거나 표지로 봐요. 누른 게임이 아래 서랍에 떠요.</span></li><li data-n="4"><span class="num">4</span><span><b>상세 서랍</b> 고른 게임의 그림 · 정보 · 설명이에요. 메타 편집과 그림 편집을 여기서 열어요.</span></li></ol><a class="zoom" href="assets/manual/overview.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <p>머리줄의 단추는 이래요.</p>
 <figure class="fig strip" id="fig-header">
-<div class="screen"><div class="stage"><img src="assets/manual/header.webp" alt="머리줄. 왼쪽에 로고와 팩 경로, 오른쪽에 휴지통 · 기기 설정 · 한글패치 · 내보내기 · 설정 단추가 있다." width="1680" height="54" loading="lazy"><span class="box" data-n="1" style="--x:19.39%;--y:15.37%;--w:3.79%;--h:62.04%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:72.23%;--y:15.37%;--w:5.35%;--h:62.04%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:78.17%;--y:15.37%;--w:5.96%;--h:62.04%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:84.73%;--y:15.37%;--w:4.88%;--h:62.04%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:90.20%;--y:15.37%;--w:5.65%;--h:62.04%"><span class="num">5</span></span><span class="box" data-n="6" style="--x:96.45%;--y:15.37%;--w:2.71%;--h:62.04%"><span class="num">6</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>팩 ▾</b> 팩 열기 · 화면 새로고침 · 목록 갱신.</span></li><li data-n="2"><span class="num">2</span><span><b>휴지통</b> 지운 게임이 있을 때만 보여요.</span></li><li data-n="3"><span class="num">3</span><span><b>기기 설정…</b> 안드로이드 기기의 설정 폴더를 팩에 저장하고 다른 기기에 넣어요.</span></li><li data-n="4"><span class="num">4</span><span><b>한글패치</b> 한글패치 목록 · 받기 · 패치 적용.</span></li><li data-n="5"><span class="num">5</span><span><b>내보내기…</b> 프론트엔드가 읽을 목록을 만들고 롬 · 그림을 보내요.</span></li><li data-n="6"><span class="num">6</span><span><b>설정</b> 계정 · AI 키 · 테마 · 업데이트.</span></li></ol><a class="zoom" href="assets/manual/header.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/header.webp" alt="머리줄. 왼쪽에 로고와 팩 경로 · 팩 메뉴, 오른쪽에 휴지통 · 기기 메뉴 · 한글패치 · 내보내기 · 설정 단추가 있다." width="1680" height="54" loading="lazy"><span class="box" data-n="1" style="--x:19.39%;--y:13.15%;--w:4.01%;--h:66.30%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:64.52%;--y:13.15%;--w:5.85%;--h:66.30%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:70.97%;--y:13.15%;--w:4.90%;--h:66.30%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:83.63%;--y:13.15%;--w:5.32%;--h:66.30%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:89.54%;--y:13.15%;--w:6.21%;--h:66.30%"><span class="num">5</span></span><span class="box" data-n="6" style="--x:96.35%;--y:13.15%;--w:2.82%;--h:66.30%"><span class="num">6</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>팩 ▾</b> 팩 열기 · 목록 파일 다시 읽기 · 롬 폴더 모두 다시 읽기.</span></li><li data-n="2"><span class="num">2</span><span><b>휴지통</b> 지운 게임이 있을 때만 보여요.</span></li><li data-n="3"><span class="num">3</span><span><b>기기 ▾</b> 내보내기 · 외부 기기 팩 열기 · 기기 설정을 한데 모았어요. 줄마다 무엇을 하는지 적혀 있어요.</span></li><li data-n="4"><span class="num">4</span><span><b>한글패치</b> 한글패치 목록 · 받기 · 패치 적용.</span></li><li data-n="5"><span class="num">5</span><span><b>내보내기…</b> 프론트엔드가 읽을 목록을 만들고 롬 · 그림을 보내요.</span></li><li data-n="6"><span class="num">6</span><span><b>설정</b> 계정 · AI 키 · 테마 · 업데이트.</span></li></ol><a class="zoom" href="assets/manual/header.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
-  <li>「팩 ▾」 의 「목록 갱신」 은 <code>roms/</code> 를 훑어 새 롬은 더하고 없어진 롬은 빼요. 「화면 새로고침」 은 복사가 도는 동안 늘어난 것을 화면에 반영만 해요.</li>
+  <li>「팩 ▾」 의 「롬 폴더 모두 다시 읽기」 는 <code>roms/</code> 를 훑어 새 롬은 더하고 없어진 롬은 빼요. 「목록 파일 다시 읽기」 는 목록 파일(<code>library.json</code>)만 다시 읽어 복사가 도는 동안 늘어난 것을 화면에 반영해요.</li>
+  <li>「기기 ▾」 에는 기기로 가는 길 셋이 줄마다 풀이와 함께 있어요 — 「내보내기…」(머리줄의 파란 단추와 같은 창) · 「외부 기기 팩 열기…」 · 「기기 설정…」.</li>
   <li>머리줄의 「게임 N · 제목 % · 표지 %」 는 제목과 표지를 가진 게임이 얼마나 되는지 보여 줘요.</li>
   <li>구분선(선반 아래 · 서랍 위 · 서랍 안 칸 사이)은 끌어서 크기를 바꾸고, 두 번 누르면 원래대로 돌아가요.</li>
 </ul>
@@ -170,13 +173,13 @@ table.list tr:last-child td{border-bottom:0}
 
 <div class="sec" id="s-sysadd">
 <h3>기종째 담기</h3>
-<p>선반 왼쪽 위 「+ 시스템…」 을 눌러요.</p>
+<p>선반 왼쪽 위 「+ 기종…」 을 눌러요.</p>
 <figure class="fig" id="fig-sysadd">
-<div class="screen"><div class="stage"><img src="assets/manual/sysadd.webp" alt="시스템 추가 창. 시스템 종류, 가져올 곳, ROM 폴더, 표시 이름 칸과 추가 단추가 있다." width="520" height="400" loading="lazy"><span class="box" data-n="1" style="--x:3.46%;--y:17.00%;--w:93.08%;--h:12.88%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:3.46%;--y:32.38%;--w:93.08%;--h:12.88%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:3.46%;--y:47.75%;--w:93.08%;--h:16.75%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:85.77%;--y:88.00%;--w:10.77%;--h:8.38%"><span class="num">4</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>시스템 종류</b> 담을 기종이에요. 폴더 이름과 달라도 돼요.</span></li><li data-n="2"><span class="num">2</span><span><b>가져올 곳</b> 내 컴퓨터 · 안드로이드(USB) · 커스텀 리눅스(SFTP).</span></li><li data-n="3"><span class="num">3</span><span><b>ROM 폴더</b> 팩 밖 폴더면 팩 안 roms/&lt;종류&gt;/ 로 복사해요(원본은 그대로).</span></li><li data-n="4"><span class="num">4</span><span><b>추가</b></span></li></ol><a class="zoom" href="assets/manual/sysadd.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/sysadd.webp" alt="기종 추가 창. 기종, 가져올 곳, 롬 폴더, 표시 이름 칸과 추가 단추가 있다." width="520" height="400" loading="lazy"><span class="box" data-n="1" style="--x:3.46%;--y:17.30%;--w:93.08%;--h:12.45%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:3.46%;--y:32.25%;--w:93.08%;--h:12.45%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:3.46%;--y:47.20%;--w:93.08%;--h:16.95%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:85.13%;--y:87.42%;--w:11.40%;--h:8.95%"><span class="num">4</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>기종</b> 담을 기종이에요. 폴더 이름과 달라도 돼요.</span></li><li data-n="2"><span class="num">2</span><span><b>가져올 곳</b> 내 컴퓨터 · 안드로이드(USB) · 커스텀 리눅스(SFTP).</span></li><li data-n="3"><span class="num">3</span><span><b>롬 폴더</b> 팩 밖 폴더면 팩 안 roms/&lt;종류&gt;/ 로 복사해요(원본은 그대로).</span></li><li data-n="4"><span class="num">4</span><span><b>추가</b></span></li></ol><a class="zoom" href="assets/manual/sysadd.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
-  <li>ROM 폴더를 비워 두면 팩 안에 빈 <code>roms/&lt;종류&gt;/</code> 를 만들어요. 나중에 「+ 게임…」 으로 채워요.</li>
+  <li>롬 폴더를 비워 두면 팩 안에 빈 <code>roms/&lt;종류&gt;/</code> 를 만들어요. 나중에 「+ 게임…」 으로 채워요.</li>
   <li>고른 폴더에 <code>gamelist.xml</code> 이나 <code>metadata.pegasus.txt</code> 가 있으면 항목 체크(제목 · 설명 · 장르 · 그림 · 영상 …)가 떠요. 체크한 항목은 그 파일의 값으로 채워요.</li>
   <li>안드로이드(USB) · 커스텀 리눅스(SFTP) 기기에서 가져오면 먼저 PC 로 복사한 뒤 담아요.</li>
 </ul>
@@ -186,27 +189,27 @@ table.list tr:last-child td{border-bottom:0}
 <h3>몇 개만 넣기</h3>
 <p>기종을 고른 채 목록 머리의 「+ 게임…」 을 눌러요.</p>
 <figure class="fig" id="fig-addgame">
-<div class="screen"><div class="stage"><img src="assets/manual/addgame.webp" alt="게임 넣기 창. 롬 파일 고르기와 게임 폴더 고르기 단추, 넣기 단추가 있다." width="520" height="280" loading="lazy"><span class="box" data-n="1" style="--x:3.46%;--y:24.29%;--w:93.08%;--h:20.61%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:3.46%;--y:47.04%;--w:93.08%;--h:20.61%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:85.77%;--y:83.04%;--w:10.77%;--h:11.96%"><span class="num">3</span></span></div></div>
+<div class="screen"><div class="stage"><img src="assets/manual/addgame.webp" alt="게임 넣기 창. 롬 파일 고르기와 게임 폴더 고르기 단추, 넣기 단추가 있다." width="520" height="354" loading="lazy"><span class="box" data-n="1" style="--x:3.46%;--y:19.55%;--w:93.08%;--h:17.46%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:3.46%;--y:38.70%;--w:93.08%;--h:17.46%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:85.13%;--y:85.96%;--w:11.40%;--h:10.11%"><span class="num">3</span></span></div></div>
 <figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>롬 파일 고르기…</b> 여러 개를 한꺼번에. m3u · cue 는 딸린 디스크도 같이 가요.</span></li><li data-n="2"><span class="num">2</span><span><b>게임 폴더 고르기…</b> 폴더 하나가 게임 하나인 것(dos · msx2)과 Vita 덤프.</span></li><li data-n="3"><span class="num">3</span><span><b>넣기</b> 무엇이 갈지 먼저 보여 준 뒤 복사해요.</span></li></ol><a class="zoom" href="assets/manual/addgame.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
-<p>무엇이 몇 개, 얼마만큼 갈지 먼저 보여 주고, 「넣기」 를 누르면 따로 뜬 진행 창에서 복사해요. 못 찾은 딸린 파일(cue 가 가리키는 bin 등)이 있으면 경고해요.</p>
+<p>무엇이 몇 개, 얼마만큼 갈지 먼저 보여 주고, 「넣기」 를 누르면 따로 뜬 진행 창에서 복사해요. 못 찾은 딸린 파일(cue 가 가리키는 bin 등)이 있으면 경고해요. 진행 창이 뜬 작업이 끝났을 때 다른 프로그램을 보고 있으면 작업 표시줄의 앱 단추가 깜빡여 알려 줘요.</p>
 </div>
 
 <div class="sec" id="s-rescan">
 <h3>폴더 다시 읽기</h3>
-<p>탐색기에서 롬 폴더를 직접 고쳤으면 앱에 다시 읽혀요. 선반의 기종 카드에 마우스를 올리면 나오는 ↻ 를 누르거나, 「⋯」 메뉴의 「여러 시스템 롬 폴더 다시 읽기」 로 여럿을 한꺼번에 해요.</p>
+<p>탐색기에서 롬 폴더를 직접 고쳤으면 앱에 다시 읽혀요. 선반의 기종 카드에 마우스를 올리면 나오는 ↻ 를 누르거나, 「⋯」 메뉴의 「여러 기종 롬 폴더 다시 읽기」 로 여럿을 한꺼번에 해요.</p>
 <figure class="fig" id="fig-rescan">
-<div class="screen"><div class="stage"><img src="assets/manual/rescan.webp" alt="롬 폴더 다시 읽기 창. 새 롬 담기와 없어진 롬만 빼기 단추가 있다." width="520" height="270" loading="lazy"><span class="box" data-n="1" style="--x:3.46%;--y:25.19%;--w:93.08%;--h:21.37%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:3.46%;--y:48.78%;--w:93.08%;--h:21.37%"><span class="num">2</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>새 롬 담기</b> 폴더에 새로 넣은 롬을 목록에 담아요.</span></li><li data-n="2"><span class="num">2</span><span><b>없어진 롬만 빼기</b> 폴더에서 지운 롬을 목록에서 빼요.</span></li></ol><a class="zoom" href="assets/manual/rescan.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/rescan.webp" alt="롬 폴더 다시 읽기 창. 새 롬 담기와 없어진 롬만 빼기 단추가 있다." width="520" height="299" loading="lazy"><span class="box" data-n="1" style="--x:3.46%;--y:23.14%;--w:93.08%;--h:20.67%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:3.46%;--y:45.82%;--w:93.08%;--h:26.69%"><span class="num">2</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>새 롬 담기</b> 폴더에 새로 넣은 롬을 목록에 담아요.</span></li><li data-n="2"><span class="num">2</span><span><b>없어진 롬만 빼기</b> 폴더에서 지운 롬을 목록에서 빼요. 적어 둔 제목 · 설명은 챙겨 둬요.</span></li></ol><a class="zoom" href="assets/manual/rescan.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
-<div class="warn"><b>조심</b>「없어진 롬만 빼기」 는 그 게임에 적어 둔 제목 · 설명도 목록에서 같이 빼요. 롬을 잠깐 다른 곳에 옮겨 둔 채 누르지 마세요. 머리줄 「목록 갱신」 도 같아요.</div>
+<div class="note"><b>알아 둘 것</b>「없어진 롬만 빼기」 · 「롬 폴더 모두 다시 읽기」 는 롬 파일이 없어진 게임을 목록에서 빼지만, 적어 둔 제목 · 설명 · 그림 정보는 팩에 챙겨 둬요. 같은 롬을 같은 자리에 다시 넣고 다시 읽으면 되살아나요.</div>
 </div>
 
 <div class="sec" id="s-list">
 <h3>목록 다루기</h3>
 <figure class="fig strip" id="fig-list-head">
-<div class="screen"><div class="stage"><img src="assets/manual/list-head.webp" alt="게임 목록 머리. 채우기 메뉴, 보기 전환, 게임 추가, 중복만, 검색 칸이 있다." width="1680" height="50" loading="lazy"><span class="box" data-n="1" style="--x:3.13%;--y:15.60%;--w:5.33%;--h:67.00%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:73.23%;--y:13.60%;--w:4.60%;--h:71.00%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:78.30%;--y:15.60%;--w:5.33%;--h:67.00%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:84.11%;--y:15.60%;--w:4.11%;--h:67.00%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:88.69%;--y:15.60%;--w:10.71%;--h:67.00%"><span class="num">5</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>채우기 ▾</b> 일괄 스크래핑 · AI로 채우기. 기종을 하나 골랐을 때만 눌려요.</span></li><li data-n="2"><span class="num">2</span><span><b>보기</b> 표로 보기 · 표지로 보기.</span></li><li data-n="3"><span class="num">3</span><span><b>+ 게임…</b> 내 컴퓨터의 롬을 이 기종에 넣어요.</span></li><li data-n="4"><span class="num">4</span><span><b>중복만</b> 같은 게임이 여러 파일(지역판 · 한글판)로 든 것만 묶어 봐요.</span></li><li data-n="5"><span class="num">5</span><span><b>검색</b> 파일 이름 · 제목으로 걸러요.</span></li></ol><a class="zoom" href="assets/manual/list-head.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/list-head.webp" alt="게임 목록 머리. 채우기 메뉴, 보기 전환, 게임 추가, 중복체크, 검색 칸이 있다." width="1680" height="50" loading="lazy"><span class="box" data-n="1" style="--x:3.27%;--y:13.60%;--w:5.79%;--h:71.60%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:71.39%;--y:12.20%;--w:4.76%;--h:74.40%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:76.63%;--y:13.60%;--w:5.79%;--h:71.60%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:82.90%;--y:13.60%;--w:5.32%;--h:71.60%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:88.69%;--y:16.60%;--w:10.71%;--h:65.60%"><span class="num">5</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>채우기 ▾</b> ScreenScraper · libretro 로 채우기 · AI로 빈 칸 채우기. 기종을 하나 골랐을 때만 눌려요.</span></li><li data-n="2"><span class="num">2</span><span><b>보기</b> 표로 보기 · 표지로 보기.</span></li><li data-n="3"><span class="num">3</span><span><b>+ 게임…</b> 내 컴퓨터의 롬을 이 기종에 넣어요.</span></li><li data-n="4"><span class="num">4</span><span><b>중복체크</b> 같은 게임이 여러 파일(지역판 · 한글판)로 든 것만 묶어 봐요.</span></li><li data-n="5"><span class="num">5</span><span><b>검색</b> 파일 이름 · 제목으로 걸러요.</span></li></ol><a class="zoom" href="assets/manual/list-head.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
   <li>표 보기에서는 열 머리를 눌러 정렬해요. 표지 보기에서는 표지 위 「한글」 띠가 파일 이름에 <code>(k)</code> 가 든 한글패치판이에요.</li>
@@ -214,11 +217,11 @@ table.list tr:last-child td{border-bottom:0}
   <li>게임을 체크하면 목록 아래에 선택 줄이 나와요.
     <ul>
       <li>「선택 압축」: 기종에 맞는 꼴(rvz · chd · zip)로 압축해요. 옛 파일은 팩 휴지통으로 가요.</li>
-      <li>「휴지통으로」(Delete 키): 고른 게임을 팩 휴지통으로 옮겨요.</li>
+      <li>「휴지통으로」(Delete 키): 고른 게임을 팩 휴지통으로 옮겨요. 외부 기기 팩을 연 동안에는 기기에 휴지통이 없어 이 단추가 「영구 삭제」 로 바뀌어요.</li>
       <li>「선택 합치기」: 여러 장 디스크를 <code>m3u</code> 한 줄로 합쳐요. <b>되돌리는 기능이 없어요.</b></li>
     </ul>
   </li>
-  <li>기종을 목록에서 빼려면 선반 카드에 마우스를 올려 ✕ 를 눌러요. 롬 파일은 그대로고, 다시 담으면 적어 둔 제목 · 설명이 돌아와요.</li>
+  <li>기종을 목록에서 빼려면 선반 카드에 마우스를 올려 ✕ 를 눌러요. 롬 파일은 그대로예요. 「롬 폴더 모두 다시 읽기」 를 해도 뺀 기종은 돌아오지 않고, 「+ 기종…」 으로 같은 폴더를 다시 담으면 적어 둔 제목 · 설명이 같이 돌아와요.</li>
 </ul>
 </div>
 
@@ -226,8 +229,8 @@ table.list tr:last-child td{border-bottom:0}
 <h3>휴지통</h3>
 <p>지운 게임은 팩 안 <code>_trash/</code> 로 가요. 머리줄 「휴지통 (N)」 은 지운 게임이 있을 때만 보여요.</p>
 <figure class="fig strip" id="fig-trash">
-<div class="screen"><div class="stage"><img src="assets/manual/trash.webp" alt="휴지통 창. 지운 게임 표와 줄마다 되돌리기 · 영구 삭제, 아래에 전부 되돌리기와 비우기 단추가 있다." width="1180" height="181" loading="lazy"><span class="box" data-n="1" style="--x:74.61%;--y:43.09%;--w:25.01%;--h:24.03%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:88.88%;--y:73.48%;--w:9.59%;--h:18.51%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:1.53%;--y:73.48%;--w:5.85%;--h:18.51%"><span class="num">3</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>되돌리기 · 영구 삭제</b> 한 줄씩. 영구 삭제는 두 번 눌러야 해요.</span></li><li data-n="2"><span class="num">2</span><span><b>전부 되돌리기</b> 제목 · 설명도 같이 돌아와요.</span></li><li data-n="3"><span class="num">3</span><span><b>비우기</b> 통째로 지워요. 되돌릴 수 없어요.</span></li></ol><a class="zoom" href="assets/manual/trash.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/trash.webp" alt="휴지통 창. 지운 게임 표와 줄마다 되돌리기 · 영구 삭제, 아래에 전부 되돌리기와 모두 영구 삭제 단추가 있다." width="1180" height="183" loading="lazy"><span class="box" data-n="1" style="--x:74.69%;--y:42.79%;--w:24.95%;--h:24.04%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:87.86%;--y:72.84%;--w:10.62%;--h:19.56%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:1.53%;--y:72.84%;--w:11.13%;--h:19.56%"><span class="num">3</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>되돌리기 · 영구 삭제</b> 한 줄씩. 영구 삭제는 확인 창으로 한 번 더 물어요.</span></li><li data-n="2"><span class="num">2</span><span><b>전부 되돌리기</b> 제목 · 설명도 같이 돌아와요.</span></li><li data-n="3"><span class="num">3</span><span><b>모두 영구 삭제</b> 통째로 지워요. 되돌릴 수 없어요.</span></li></ol><a class="zoom" href="assets/manual/trash.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <p>되돌리면 롬 · 그림 · 제목 · 설명이 함께 돌아와요. 같은 이름의 롬이 팩에 이미 있으면 그 게임은 되돌리지 않아요.</p>
 </div>
@@ -243,11 +246,11 @@ table.list tr:last-child td{border-bottom:0}
 <h3>상세 서랍</h3>
 <p>목록에서 게임을 하나 누르면 아래 서랍에 떠요.</p>
 <figure class="fig strip" id="fig-drawer">
-<div class="screen"><div class="stage"><img src="assets/manual/drawer.webp" alt="상세 서랍. 큰 표지와 제목, 메타 편집 단추, 그림 · 영상 아홉 칸, 개발사 · 출시일 · 설명이 있다." width="1680" height="290" loading="lazy"><span class="box" data-n="1" style="--x:14.07%;--y:84.66%;--w:5.85%;--h:9.83%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:20.27%;--y:84.66%;--w:4.79%;--h:9.83%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:27.14%;--y:18.79%;--w:22.92%;--h:52.07%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:44.21%;--y:5.52%;--w:5.85%;--h:9.83%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:51.19%;--y:1.38%;--w:48.81%;--h:98.62%"><span class="num">5</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>메타 편집…</b> 제목 · 설명 · 그림을 찾아 바꾸는 창이에요.</span></li><li data-n="2"><span class="num">2</span><span><b>폴더 · 휴지통</b> 탐색기에서 롬 보기 · 이 게임을 팩 휴지통으로(Delete 키).</span></li><li data-n="3"><span class="num">3</span><span><b>그림 · 영상 칸</b> 아홉 종류가 늘 같은 자리에 있어요. 없는 것은 「없음」, ✕ 는 두 번 눌러 떼요.</span></li><li data-n="4"><span class="num">4</span><span><b>그림 편집…</b> 고른 그림을 자르고 투명하게 하고 새로 가져와요.</span></li><li data-n="5"><span class="num">5</span><span><b>정보 · 설명</b> 개발사 · 출시일 · 파일 · 설명이에요.</span></li></ol><a class="zoom" href="assets/manual/drawer.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/drawer.webp" alt="상세 서랍. 큰 표지와 제목, 메타 편집 단추, 그림 · 영상 아홉 칸, 개발사 · 출시일 · 설명이 있다." width="1680" height="290" loading="lazy"><span class="box" data-n="1" style="--x:11.68%;--y:84.90%;--w:5.80%;--h:9.59%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:17.84%;--y:84.90%;--w:7.24%;--h:9.59%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:27.14%;--y:18.55%;--w:22.93%;--h:59.31%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:44.27%;--y:5.52%;--w:5.80%;--h:9.59%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:51.19%;--y:1.38%;--w:48.81%;--h:98.62%"><span class="num">5</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>메타 편집…</b> 제목 · 설명 · 그림을 찾아 바꾸는 창이에요.</span></li><li data-n="2"><span class="num">2</span><span><b>폴더 · 휴지통</b> 탐색기에서 롬 보기 · 이 게임을 팩 휴지통으로(Delete 키).</span></li><li data-n="3"><span class="num">3</span><span><b>그림 · 영상 칸</b> 아홉 종류가 늘 같은 자리에 있어요. 없는 것은 「없음」, ✕ 는 두 번 눌러 빼요(파일은 그대로).</span></li><li data-n="4"><span class="num">4</span><span><b>그림 편집…</b> 고른 그림을 자르고 투명하게 하고 새로 가져와요.</span></li><li data-n="5"><span class="num">5</span><span><b>정보 · 설명</b> 개발사 · 출시일 · 파일 · 설명이에요.</span></li></ol><a class="zoom" href="assets/manual/drawer.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
-  <li>그림 칸 아홉(표지 · 스크린샷 · 타이틀 · 로고 · 3D 박스 · 옆면 · 박스 전개 · 카트리지 · 영상)은 늘 같은 자리에 있어요. 칸 왼쪽 아래에 그림의 지역이 적혀요.</li>
+  <li>그림 칸 아홉(표지 · 스크린샷 · 타이틀 · 로고 · 3D 박스 · 옆면 · 박스 전개 · 카트리지 · 디스크 · 영상)은 늘 같은 자리에 있어요. 칸 왼쪽 아래에 그림의 지역이 적혀요.</li>
   <li>칸을 고르고 「그림 편집…」(영상 칸이면 「영상 편집…」)으로 손봐요. 서랍에서 바꾼 그림 · 영상은 <b>바로 팩에 저장</b>돼요.</li>
 </ul>
 </div>
@@ -256,46 +259,54 @@ table.list tr:last-child td{border-bottom:0}
 <h3>한 게임씩 고치기 — 메타 편집</h3>
 <p>서랍의 「메타 편집…」 을 눌러요.</p>
 <figure class="fig" id="fig-editor">
-<div class="screen"><div class="stage"><img src="assets/manual/editor.webp" alt="게임 메타 편집 창. 왼쪽에 후보 찾기, 가운데에 제목 · 장르 · 설명 칸, 오른쪽에 그림 목록과 미리보기가 있다." width="1180" height="765" loading="lazy"><span class="box" data-n="1" style="--x:0.34%;--y:7.65%;--w:25.34%;--h:6.47%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:25.76%;--y:8.95%;--w:41.69%;--h:82.09%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:46.30%;--y:84.31%;--w:19.89%;--h:4.38%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:67.46%;--y:69.28%;--w:32.20%;--h:23.07%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:93.73%;--y:93.79%;--w:4.75%;--h:4.38%"><span class="num">5</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>찾기</b> 게임명 넣고 Enter = ScreenScraper · 그림 단추 = libretro 썸네일(계정 없이).</span></li><li data-n="2"><span class="num">2</span><span><b>값 칸</b> 후보를 고르면 채워져요. 손으로 고쳐도 돼요.</span></li><li data-n="3"><span class="num">3</span><span><b>AI 단추</b> 빈 칸 채우기 · 설명 번역(본인 AI 키).</span></li><li data-n="4"><span class="num">4</span><span><b>그림 목록</b> 종류마다 「새 그림」 · 「그대로」 · 「없음」 이 보여요.</span></li><li data-n="5"><span class="num">5</span><span><b>적용</b> 누르기 전에는 글이 저장되지 않아요.</span></li></ol><a class="zoom" href="assets/manual/editor.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/editor.webp" alt="메타 편집 창. 맨 위에 찾기 줄, 그 밑에 왼쪽 찾은 게임 목록 · 가운데 글 칸 · 오른쪽 그림 · 영상 9칸이 있다. 칸마다 값 하나와 「팩 · 찾은 것」 단추가 있다." width="1613" height="846" loading="lazy"><span class="box" data-n="1" style="--x:0.25%;--y:7.15%;--w:99.49%;--h:6.29%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:17.36%;--y:14.62%;--w:32.31%;--h:74.30%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:17.98%;--y:48.56%;--w:7.95%;--h:39.18%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:50.41%;--y:14.62%;--w:48.46%;--h:74.30%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:95.20%;--y:91.13%;--w:3.68%;--h:4.23%"><span class="num">5</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>찾기</b> 게임명 넣고 Enter = ScreenScraper · libretro 썸네일 = 계정 없이 그림만. 찾은 게임은 왼쪽 목록에서 골라요.</span></li><li data-n="2"><span class="num">2</span><span><b>글 줄</b> 칸마다 「적용」 때 들어갈 값 하나만 보여요. 줄 끝 「팩 · 찾은 것」 으로 쓸 쪽을 고르고, 보이는 값을 고쳐 써도 돼요.</span></li><li data-n="3"><span class="num">3</span><span><b>AI 단추</b> 빈 칸 채우기 · 설명 번역(본인 AI 키).</span></li><li data-n="4"><span class="num">4</span><span><b>그림 · 영상</b> 9칸으로 한눈에, 「크게」 로 한 종류씩 봐요. 칸 아래 「팩 · 찾은 것」 으로 쓸 쪽을 골라요.</span></li><li data-n="5"><span class="num">5</span><span><b>적용</b> 누르기 전에는 글이 저장되지 않아요.</span></li></ol><a class="zoom" href="assets/manual/editor.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ol class="steps">
-  <li><span><b>찾기</b>검색 칸에 게임 이름을 넣고 Enter 를 누르면 ScreenScraper 에서 찾아요. 비워 두면 롬 파일 이름으로 찾아요. 그림 단추는 libretro 썸네일에서 그림만 가져와요.</span></li>
-  <li><span><b>후보 고르기</b>후보를 누르면 값 칸과 그림 목록이 채워져요. 「채워진 칸은 그대로 둬요」 를 켜 두면 빈 칸만 채워요. 칸마다 붙은 체크로 따로 켜고 끌 수도 있어요.</span></li>
-  <li><span><b>다듬기</b>칸은 손으로 고쳐도 돼요. 「AI로 빈 칸 채우기」 는 영어 제목 · 장르 · 출시일 · 개발사 · 인원 중 빈 칸을, 「설명 번역」 은 설명을 한국어로 옮겨요.</span></li>
-  <li><span><b>적용</b>「적용」 을 눌러야 글과 후보 그림이 저장돼요. 적용하지 않고 닫으면 저장할지 물어요.</span></li>
+  <li><span><b>찾기</b>검색 칸에 게임 이름을 넣고 Enter 를 누르면 ScreenScraper 에서 찾아요. 비워 두면 롬 파일 이름으로 찾아요. 「libretro 썸네일」 은 계정 없이 그림만 가져와요.</span></li>
+  <li><span><b>찾은 게임 고르기</b>찾은 게임은 왼쪽 목록에 떠요. 하나를 누르면 그 게임의 값이 「찾은 것」 으로 들어가요. 롬 파일 이름으로 찾아 하나만 나오면 저절로 골라요.</span></li>
+  <li><span><b>쓸 쪽 고르기</b>칸마다 「적용」 때 들어갈 값 하나만 보여요. 줄 끝 「팩」 은 지금 팩 값을, 「찾은 것」 은 찾은 값을 써요. 「적용」 하면 바뀌는 칸은 왼쪽에 빨간 띠가 있어요. 찾기 줄 끝이 「빈 칸만」 이면 팩에 값이 있는 칸은 「팩」 으로, 「다 바꾸기」 면 모든 칸을 「찾은 것」 으로 처음 맞춰요.</span></li>
+  <li><span><b>다듬기</b>칸에 보이는 값을 고쳐 쓰면 그 쪽 값이 바뀌어요. 「AI로 빈 칸 채우기」 는 한글 제목 · 영어 제목 · 장르 · 출시일 · 개발사 · 인원 중 빈 칸을, 설명 줄 「번역」 은 설명을 한국어로 옮겨요.</span></li>
+  <li><span><b>적용</b>「적용」 을 눌러야 칸에 보이는 글과 「찾은 것」 으로 둔 그림이 저장돼요. 적용하지 않고 닫으면 저장할지 물어요.</span></li>
 </ol>
 <ul>
-  <li>그림 목록에는 종류마다 상태가 붙어요 — 「새 그림」(적용 때 들어감) · 「그대로」(팩에 있는 것) · 「없음」 · 「파일 없음」(목록에는 있는데 파일이 없음).</li>
+  <li>그림 칸 머리의 「9칸」 · 「크게」 로 보기를 바꿔요(Enter 로도). 「크게」 는 위 탭으로 종류를 넘기고, 영상은 그 자리에서 틀어요. 누른 보기는 다음 게임에도 그대로예요.</li>
+  <li>찾은 그림에 지역판이 여럿이면 9칸에서는 그림 귀의 「jp · 3판 ▾」 를, 크게에서는 판 단추(jp · us …)를 눌러 바꿔요. 바꿔도 쓸 쪽은 그대로예요.</li>
+  <li>「찾은 그림 모두 쓰기」 는 찾은 게임의 그림 · 영상을 모두 「찾은 것」 으로 둬요(지역판은 한국 · 세계 · 미국 · 유럽 · 일본 차례의 첫 판). 글 칸은 그대로예요.</li>
+  <li>그림 칸의 「파일 없음」 은 목록에는 있는데 팩에 파일이 없다는 뜻이에요.</li>
+  <li>단축키 — ↑ ↓ 줄 고르기 · Enter 9칸 ↔ 크게 · S 쓸 쪽 · F 편집 · D 빼기(두 번) · A 모두 쓰기 · ← → 지역판. 아래 줄의 ⌨ 를 누르면 키를 바꿔요.</li>
   <li>찾은 제목을 우리 표기로 맞추지 못하면 「제목 표기 확인」 창이 떠서 「AI 추천」 · 「원래대로 두기」 · 「이대로 쓰기」 중에 골라요.</li>
   <li>머리의 「이름 바꾸기」 는 롬 파일 이름을 바꾸고 그림 이름도 따라 바꿔요. 「파일 교체…」 는 롬을 다른 파일(예: 한글패치본)로 갈아끼워요. 제목 · 설명은 그대로고, 옛 롬은 팩 휴지통으로 가요.</li>
 </ul>
-<div class="warn"><b>조심</b>이 창에서 저장 시점이 둘이에요. 「편집…」 으로 손본 그림 · 「파일로 교체…」 · ✕ 떼기는 <b>바로</b> 저장되고, 글 칸 · 후보 그림 · 「영상 편집…」 은 <b>「적용」 때</b> 저장돼요.</div>
+<div class="warn"><b>조심</b>이 창에서 저장 시점이 둘이에요. 「편집…」 으로 손본 그림 · 「파일로…」 로 바꾼 영상 · ✕ 빼기는 <b>바로</b> 저장되고, 글 칸 · 「찾은 것」 으로 둔 그림 · 「영상 편집…」 은 <b>「적용」 때</b> 저장돼요.</div>
 </div>
 
 <div class="sec" id="s-img">
 <h3>그림 손보기 — 그림 편집</h3>
 <p>서랍이나 메타 편집 창에서 그림 칸을 고르고 「그림 편집…」 · 「편집…」 을 눌러요.</p>
 <figure class="fig" id="fig-img">
-<div class="screen"><div class="stage"><img src="assets/manual/img.webp" alt="그림 편집 창. 왼쪽에 파일 · 주소 · 웹검색, 가운데 작업판, 오른쪽에 자르기 · 투명화 · AI 누끼 따기 · 정면화 같은 도구가 있다." width="1280" height="810" loading="lazy"><span class="box" data-n="1" style="--x:2.50%;--y:8.15%;--w:33.75%;--h:4.14%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:1.41%;--y:15.00%;--w:35.94%;--h:76.30%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:38.44%;--y:7.16%;--w:60.16%;--h:68.95%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:38.44%;--y:80.31%;--w:60.16%;--h:10.99%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:94.22%;--y:94.14%;--w:4.38%;--h:4.14%"><span class="num">5</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>파일 · 주소</b> 내 그림 파일이나 이미지 주소로 가져와요.</span></li><li data-n="2"><span class="num">2</span><span><b>웹검색</b> 구글 이미지 결과를 누르면 그 그림을 가져와요. 한글 제목이 있으면 옆 단추로 한글 · 영어 제목을 바꿔 찾아요.</span></li><li data-n="3"><span class="num">3</span><span><b>작업판</b> 휠로 확대 · 축소. 「배경」 으로 투명한 자리를 봐요.</span></li><li data-n="4"><span class="num">4</span><span><b>손보기</b> 자르기 · 투명화 · AI 누끼 따기 · 정면화 · 크기조절 · 되돌리기.</span></li><li data-n="5"><span class="num">5</span><span><b>적용</b> PNG 로 팩에 저장해요.</span></li></ol><a class="zoom" href="assets/manual/img.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/img.webp" alt="그림 편집 창의 「손보기」. 머리에 「그림 찾기 ↔ 손보기」 보기 단추, 왼쪽에 찾은 그림, 가운데 작업판, 오른쪽에 할 일별 도구 판이 있다." width="1613" height="846" loading="lazy"><span class="box" data-n="1" style="--x:18.90%;--y:1.65%;--w:12.69%;--h:4.00%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:1.12%;--y:19.76%;--w:10.54%;--h:71.90%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:12.65%;--y:8.10%;--w:66.63%;--h:78.92%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:80.27%;--y:8.10%;--w:18.60%;--h:83.57%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:92.96%;--y:94.11%;--w:5.91%;--h:4.23%"><span class="num">5</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>그림 찾기 ↔ 손보기</b> 「그림 찾기」 는 찾은 그림을 크게 보며 고르고 그림 주소 · PC 파일로도 열어요. 그림을 열면 「손보기」 로 넘어가요.</span></li><li data-n="2"><span class="num">2</span><span><b>찾은 그림</b> 누르면 작업판의 그림이 바뀌어요(원본을 못 받으면 구글의 작은 그림). 한글 제목이 있으면 단추로 한글 · 영어 제목을 바꿔 찾아요.</span></li><li data-n="3"><span class="num">3</span><span><b>작업판</b> 휠로 키우고 줄여요. 아래 「바탕」 으로 투명하게 지운 자리를 봐요.</span></li><li data-n="4"><span class="num">4</span><span><b>도구 판</b> 모양 · 배경 · 펴기 묶음. 켠 도구의 설정은 판 맨 아래에 펼쳐져요.</span></li><li data-n="5"><span class="num">5</span><span><b>팩에 저장</b> PNG 로 팩에 저장해요.</span></li></ol><a class="zoom" href="assets/manual/img.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
-  <li>「웹검색」 을 누르면 구글 이미지 결과가 칸으로 떠요. 칸을 누르면 그 그림을 가져와요(원본을 못 받으면 구글의 작은 그림). 로고를 찾을 때는 투명 배경 그림만 찾아요.</li>
-  <li>한글 제목이 있는 게임은 검색 칸 옆 단추로 한글 제목 · 영어 제목 검색어를 바꿔 찾아요.</li>
-  <li>박스 전개 칸에서는 「앞표지 + 옆면으로 만들기」 로 [뒷표지(녹색) · 옆면 · 앞표지] 전개도를 바로 만들어요. 옆면 그림이 없으면 「옆면」 칸에 먼저 넣어요.</li>
-  <li>「투명화」 는 네 모서리에서 이어진 배경만 지우고, 「영역 투명화」 는 누른 색이나 끈 사각형 안을 지워요.</li>
-  <li>「정면화」 는 비스듬히 찍은 박스 사진을 똑바로 펴요. 「4점 정면화」 로 네 귀퉁이를 직접 찍을 수도 있어요.</li>
-  <li>「AI 누끼 따기…」 는 그림 AI 에게 배경을 지워 달라고 보내요. 1~2분 걸리고 본인 키로 요금이 나가요. 쓸 서비스와 모델은 「설정 › AI 미디어 한글화 · 편집」 에서 골라요. 결과는 「되돌리기」 로 무를 수 있어요.</li>
+  <li>창을 열면 구글 이미지에서 바로 찾아 둬요. 칸에 그림이 있으면 「손보기」 로, 없으면 「그림 찾기」 로 열려요. 로고 칸은 투명 배경 그림만 찾아요.</li>
+  <li>「그림 찾기」 는 찾은 그림을 크게 늘어놓아요. 누르면 받아서 「손보기」 로 넘어가요(원본을 못 받으면 구글의 작은 그림). 그림 주소 · PC 파일로도 열고, 오른쪽 「이 그림 손보기」 는 팩의 지금 그림을 다시 열어요.</li>
+  <li>「손보기」 왼쪽에도 찾은 그림이 한 줄로 있어, 보기를 바꾸지 않고 그림을 바꿔요.</li>
+  <li>한글 제목이 있는 게임은 찾기 칸 옆 단추로 한글 제목 · 영어 제목을 바꿔 찾아요.</li>
+  <li>도구 판의 「모양」 에는 「잘라 내기」 · 「크기 바꾸기」(가로 · 세로 픽셀 수)가 있어요. 켠 도구의 설정과 실행 단추는 도구 판 맨 아래에 펼쳐지고, 쓰는 법은 창 아래 줄에 떠요.</li>
+  <li>「배경」 의 「바깥 배경」 은 그림 네 귀에 닿은 배경만 지우고, 「눌러서 지우기」 는 누른 색이나 끈 사각형 안을 지워요. 「색 차이」 를 키우면 조금 다른 색까지 배경으로 봐요.</li>
+  <li>「펴기」 의 「알아서 펴기」 는 비스듬히 찍은 박스 사진을 반듯하게 펴요. 「네 귀 찍어」 로 점 넷을 직접 옮길 수도 있어요.</li>
+  <li>박스 전개 칸에서는 「앞표지 · 옆면으로 짜기」 로 [뒷표지(초록) · 옆면 · 앞표지] 전개도를 바로 만들어요. 옆면 그림이 없으면 「옆면」 칸에 먼저 넣어요.</li>
+  <li>「AI 누끼…」 는 그림 AI 에게 배경을 지워 달라고 보내요. 1~2분 걸리고 본인 키로 요금이 나가요. 쓸 서비스와 모델은 「설정 › AI 미디어 한글화 · 편집」 에서 골라요. 결과는 「되돌리기」 로 무를 수 있어요.</li>
 </ul>
-<div class="warn"><b>조심</b>「적용」 은 PNG 로 같은 자리의 그림을 <b>덮어써요</b>. 옛 그림은 팩 휴지통으로 가지 않아요.</div>
+<div class="warn"><b>조심</b>「팩에 저장」 은 PNG 로 같은 자리의 그림을 <b>덮어써요</b>. 옛 그림은 팩 휴지통으로 가지 않아요.</div>
 </div>
 
 <div class="sec" id="s-bulk">
-<h3>기종째 스크래핑 — 일괄 스크래핑</h3>
-<p>선반에서 기종을 하나 고르고 목록 머리 「채우기 ▾ › 일괄 스크래핑…」 을 눌러요. 「전체」 를 보는 동안에는 잠겨 있어요.</p>
+<h3>ScreenScraper · libretro 로 채우기</h3>
+<p>선반에서 기종을 하나 고르고 목록 머리 「채우기 ▾ › ScreenScraper · libretro 로 채우기…」 를 눌러요. 「전체」 를 보는 동안에는 잠겨 있어요.</p>
 <figure class="fig" id="fig-bulk">
-<div class="screen"><div class="stage"><img src="assets/manual/bulk.webp" alt="일괄 스크래핑 창. 찾을 그림 · 글 칸 체크, 있는 그림 처리 방식, 찾을 곳과 찾기 단추, 결과 표가 있다." width="1180" height="344" loading="lazy"><span class="box" data-n="1" style="--x:0.34%;--y:13.37%;--w:99.32%;--h:21.22%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:0.34%;--y:34.59%;--w:99.32%;--h:10.61%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:19.62%;--y:47.53%;--w:4.75%;--h:9.74%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:88.44%;--y:86.05%;--w:10.03%;--h:9.74%"><span class="num">4</span></span></div></div>
+<div class="screen"><div class="stage"><img src="assets/manual/bulk.webp" alt="ScreenScraper · libretro 로 채우기 창. 찾을 그림 · 글 칸 체크, 있는 그림 처리 방식, 찾을 곳과 찾기 단추, 결과 표가 있다." width="1180" height="351" loading="lazy"><span class="box" data-n="1" style="--x:0.34%;--y:13.45%;--w:99.32%;--h:20.60%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:0.34%;--y:34.05%;--w:99.32%;--h:10.31%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:19.62%;--y:46.64%;--w:5.03%;--h:10.20%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:87.35%;--y:85.84%;--w:11.13%;--h:10.20%"><span class="num">4</span></span></div></div>
 <figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>찾을 칸</b> 그림 8가지 · 글 7가지. 고른 칸이 하나라도 빈 게임만 목록에 들어요.</span></li><li data-n="2"><span class="num">2</span><span><b>있는 그림</b> 빈 칸만 채우기 · 전체 교체(옛 그림은 팩 휴지통으로).</span></li><li data-n="3"><span class="num">3</span><span><b>찾기</b> ScreenScraper · libretro 에 물어요. 찾은 것은 표에 근거와 함께 떠요.</span></li><li data-n="4"><span class="num">4</span><span><b>선택한 것 적용</b> 체크한 줄만 넣어요.</span></li></ol><a class="zoom" href="assets/manual/bulk.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ol class="steps">
@@ -310,7 +321,7 @@ table.list tr:last-child td{border-bottom:0}
   <dt>찾는 순서</dt><dd>ScreenScraper 에 롬(내용 CRC · 크기 · 파일 이름)으로 먼저 묻고, 채울 것을 못 찾으면 게임의 영어 제목으로 검색해요. libretro 는 롬 파일 이름 → 영어 제목 순으로 표지 · 타이틀 · 스크린샷만 찾아요.</dd>
   <dt>미리 체크</dt><dd>「롬 해시가 같음」 · 「파일 이름 그대로」 로 맞춘 줄만 미리 체크돼요. 「서버가 이름으로 맞춤」 과 영어 제목 검색으로 찾은 줄은 옆 게임(1편↔2편, 일본판↔한국판)일 수 있어 직접 봐요. 한글패치한 롬은 해시가 달라서 보통 이쪽으로 와요.</dd>
   <dt>제목이 같으면</dt><dd>「제목이 같으면 미리 체크」 를 켜면 찾은 이름이 지금 제목과 글자 그대로 같은 줄도 미리 체크해요. 기본은 꺼져 있어요.</dd>
-  <dt>영어 제목</dt><dd>롬으로 못 찾은 게임은 영어 제목이 없으면 ScreenScraper 검색을 건너뛰어요. 「AI로 채우기」 나 메타 편집에서 영어 제목을 먼저 채워 두면 더 많이 찾아요.</dd>
+  <dt>영어 제목</dt><dd>롬으로 못 찾은 게임은 영어 제목이 없으면 ScreenScraper 검색을 건너뛰어요. 「AI로 빈 칸 채우기」 나 메타 편집에서 영어 제목을 먼저 채워 두면 더 많이 찾아요.</dd>
   <dt>설명 언어</dt><dd>한국어 설명이 없으면 영어로 와요. 메타 편집의 「설명 번역」 으로 옮겨요.</dd>
   <dt>하루 조회 수</dt><dd>ScreenScraper 는 계정마다 하루에 물을 수 있는 수가 정해져 있고, 게임마다 한두 번 물어요. 남은 수는 「설정 › ScreenScraper」 의 「계정 확인」 으로 봐요.</dd>
 </dl>
@@ -318,10 +329,10 @@ table.list tr:last-child td{border-bottom:0}
 </div>
 
 <div class="sec" id="s-ai">
-<h3>AI로 채우기</h3>
-<p>「채우기 ▾ › AI로 채우기…」 는 고른 기종 게임들의 빈 칸을 AI 에게 한꺼번에 물어요.</p>
+<h3>AI로 빈 칸 채우기</h3>
+<p>「채우기 ▾ › AI로 빈 칸 채우기…」 는 고른 기종 게임들의 빈 칸을 AI 에게 한꺼번에 물어요.</p>
 <figure class="fig strip" id="fig-aibatch">
-<div class="screen"><div class="stage"><img src="assets/manual/aibatch.webp" alt="AI로 채우기 창. 채울 항목 체크와 AI 에게 묻기 단추, 결과 표, 선택한 것 적용 단추가 있다." width="1180" height="214" loading="lazy"><span class="box" data-n="1" style="--x:0.34%;--y:21.50%;--w:99.32%;--h:23.60%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:32.25%;--y:25.23%;--w:9.01%;--h:15.65%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:88.44%;--y:77.80%;--w:10.03%;--h:15.65%"><span class="num">3</span></span></div></div>
+<div class="screen"><div class="stage"><img src="assets/manual/aibatch.webp" alt="AI로 빈 칸 채우기 창. 채울 항목 체크와 AI 에게 묻기 단추, 결과 표, 선택한 것 적용 단추가 있다." width="1180" height="220" loading="lazy"><span class="box" data-n="1" style="--x:0.34%;--y:21.45%;--w:99.32%;--h:23.86%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:38.67%;--y:25.09%;--w:9.94%;--h:16.27%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:87.35%;--y:77.36%;--w:11.13%;--h:16.27%"><span class="num">3</span></span></div></div>
 <figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>채울 항목</b> 빈 칸만 물어요. 채워진 칸은 안 건드려요.</span></li><li data-n="2"><span class="num">2</span><span><b>AI 에게 묻기</b> 답이 「빈 칸」 자리에 떠요.</span></li><li data-n="3"><span class="num">3</span><span><b>선택한 것 적용</b></span></li></ol><a class="zoom" href="assets/manual/aibatch.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
@@ -333,24 +344,53 @@ table.list tr:last-child td{border-bottom:0}
 
 <div class="sec" id="s-loc">
 <h3>그림 속 글자 한글화</h3>
-<p>메타 편집 창 오른쪽 위 「AI 미디어 한글화…」 는 표지 · 로고 · 타이틀 같은 그림 속 글자를 한글 제목으로 다시 그려요.</p>
+<p>메타 편집 창 아래 띠의 「AI 미디어 한글화…」 는 표지 · 로고 · 타이틀 같은 그림 속 글자를 한글 제목으로 다시 그려요. 왼쪽 목록 한 줄이 그림 종류 하나예요.</p>
 <ol class="steps">
-  <li><span><b>한글 제목 넣기</b>그림에 넣을 제목을 적고, 필요하면 「추가 지시」 를 더해요.</span></li>
-  <li><span><b>그림 고르기</b>바꿀 그림 카드를 체크하고 비용 확인 체크를 켠 뒤 「선택 일괄 변환」 을 눌러요. 로고를 먼저 그리고, 표지 · 카트리지 같은 그림은 그 로고를 본보기로 같이 보내요.</span></li>
-  <li><span><b>견주기</b>결과 카드를 크게 열어 원본과 나란히 봐요. 실패한 것만 다시 할 수 있어요.</span></li>
-  <li><span><b>적용</b>쓸 결과를 고르고 「선택한 결과 일괄 적용…」 을 눌러요.</span></li>
+  <li><span><b>보낼 내용</b>오른쪽 칸에 그림에 넣을 한글 제목을 적고, 필요하면 「추가 지시」 를 더해요. 제공자 · 모델 · 품질도 여기서 골라요.</span></li>
+  <li><span><b>그림 고르기</b>왼쪽 목록에서 바꿀 종류를 체크하고 확인 체크를 켠 뒤 「한꺼번에 그리기」 를 눌러요. 로고를 먼저 그리고, 표지는 로고를, 나머지는 로고나 표지를 본보기로 같이 보내요.</span></li>
+  <li><span><b>글 지도</b>표지 · 3D 박스 · 박스 전개는 그리기 전에 글 AI 가 그림 속 글을 칸마다 읽어 가운데 아래 「글 지도」 표에 원문 → 한국어로 보여요. 그리기는 멈추지 않아요. 고칠 글이 있으면 한국어 칸을 고치거나 「바꿈」 을 끈 뒤 「다시 그리기」 를 눌러요. 표에 없거나 「바꿈」 을 끈 글은 원본 그대로 남아요. 그리기 전에 보고 싶으면 「글만 먼저 읽기」 를 눌러요.</span></li>
+  <li><span><b>견주기</b>목록에서 종류를 고르면 가운데에 원본과 한글화 결과가 같은 크기로 크게 나란히 떠요. 휠로 키우면 두 칸이 같이 커지고 같이 굴러가요. 그 종류만 다시 그리려면 「다시 그리기」, 실패한 것을 모두 다시 그리려면 「실패만 다시」 를 눌러요.</span></li>
+  <li><span><b>적용</b>그린 종류는 쓸 쪽이 「한글화 결과 ▶」 로 바뀌어요. 원본을 남길 종류는 「◀ 원본 그대로」 로 돌리고 「고른 것 적용…」 을 누르면 결과 쪽 종류만 원본 자리에 갈아끼워요.</span></li>
 </ol>
-<div class="warn"><b>조심</b>그림마다 따로 요청을 보내 요금이 나가요(구독과 별도). 취소해도 이미 보낸 요청은 청구될 수 있어요. 적용하면 원본 그림 자리에 갈아끼우고 옛 그림 파일은 지워요.</div>
+<ul>
+  <li>목록에 초점이 있으면 ↑ ↓ 종류 옮기기 · Space 쓸 쪽 · Del 빼 두기 키가 먹어요.</li>
+</ul>
+<div class="warn"><b>조심</b>그림마다 따로 요청을 보내 요금이 나가요(구독과 별도). 취소해도 이미 보낸 요청은 청구될 수 있어요. 적용하면 원본 그림 자리에 갈아끼우고 옛 그림 파일은 팩 휴지통(<code>_trash/</code>)으로 옮겨요(외부 기기 팩에서는 지워요).</div>
 </div>
 
 <div class="sec" id="s-video">
 <h3>영상 넣기</h3>
 <p>서랍이나 메타 편집 창의 영상 칸에서 「영상 편집…」 을 눌러요.</p>
 <ul>
-  <li>창을 열면 게임 제목으로 유튜브를 바로 찾아요. 결과를 누르면 받아 오고, 영상 주소나 내 파일(mp4 · mkv · webm · mov)을 넣어도 돼요. 한글 제목이 있으면 검색 칸 옆 단추로 한글 · 영어 제목을 바꿔 찾아요.</li>
-  <li>영상을 틀며 손잡이 둘로 쓸 구간을 잡고 「선택 구간 적용」, 통째로 쓰려면 「전체 사용」 을 눌러요.</li>
+  <li>창을 열면 게임 제목으로 유튜브를 바로 찾아 「영상 고르기」 에 보여요(끝까지 내리면 더 찾아요). 고르면 「받을 화질」(처음은 720p)로 받아 와서 「장면 자르기」 로 넘어가 틀어요. 맨 위 오른쪽 칸에 영상 주소를 적거나 「PC 에서 고르기…」 로 내 파일(mp4 · mkv · webm · mov)을 열어도 돼요. 한글 제목이 있으면 찾기 칸 옆 단추로 한글 · 영어 제목을 바꿔 찾아요.</li>
+  <li>영상 밑 띠의 괄호 둘([ ])을 끌거나, 원하는 장면에서 「[ 여기부터」 · 「여기까지 ]」 를 눌러 넣을 장면을 골라요. 시각 칸에 <code>1:05.3</code> 처럼 적어도 돼요. 빨간 선이 지금 트는 자리고, 띠를 누르면 그 자리로 가요. 「고른 장면 보기」 로 괄호 사이만 틀어 보고, 「고른 장면 넣기」 로 그 장면만, 「통째로 넣기」 로 영상 전체를 넣어요.</li>
+  <li>「장면 자르기」 에서는 키보드로도 돼요 — Space 재생 · I 여기부터 · O 여기까지 · ← → 1초(Shift 를 같이 누르면 0.1초) · P 고른 장면 보기.</li>
   <li>처음 쓸 때 영상 도구(yt-dlp · ffmpeg)를 한 번 받아요.</li>
   <li>서랍에서 열었으면 바로 저장되고, 메타 편집 창에서 열었으면 그 창의 「적용」 때 저장돼요.</li>
+</ul>
+</div>
+
+<div class="sec" id="s-um">
+<h3>사용자 그림 — 다른 사람이 올린 그림 쓰기</h3>
+<p>다른 사람이 고쳐 올린 표지 · 로고 같은 그림을 내 팩에 쓰고, 내가 손본 그림을 올려 나눠요. 보기 · 고르기 · 「적용」 은 로그인 없이 되고, ♥ 와 올리기는 「설정 › 계정」 에서 로그인하고 별명을 정한 뒤에 할 수 있어요.</p>
+<figure class="fig" id="fig-um">
+<div class="screen"><div class="stage"><img src="assets/manual/um.webp" alt="메타 편집 창의 「크게」 보기. 큰 그림 오른쪽에 「사용자 표지」 칸이 있고, 맨 앞 올리기 칸 뒤로 다른 사람이 올린 그림이 별명 · ♥ 와 함께 늘어서 있다." width="1613" height="846" loading="lazy"><span class="box" data-n="1" style="--x:82.55%;--y:81.64%;--w:15.70%;--h:3.31%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:85.60%;--y:34.07%;--w:12.65%;--h:46.87%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:86.10%;--y:40.77%;--w:5.70%;--h:11.70%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:94.32%;--y:37.81%;--w:3.43%;--h:2.36%"><span class="num">4</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>사용자 그림 n개 ▶</b> 누르면 오른쪽 칸의 맨 앞 그림을 써요. 「적용」 때 팩에 들어가요.</span></li><li data-n="2"><span class="num">2</span><span><b>사용자 그림 칸</b> 다른 사람이 올린 그 종류의 그림이에요. 누르면 그 그림을 쓰고, 정렬 · ‹ › 로 더 봐요.</span></li><li data-n="3"><span class="num">3</span><span><b>올리기</b> 지금 팩의 이 그림을 올려요. 로그인하고 별명을 정한 뒤에 눌려요.</span></li><li data-n="4"><span class="num">4</span><span><b>찾기</b> 다른 게임에 올라온 그림도 골라 써요.</span></li></ol><a class="zoom" href="assets/manual/um.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+<ul>
+  <li>메타 편집 창에서 그림을 「크게」 로 보면 오른쪽에 「사용자 〈종류〉」 칸이 떠요. 그림을 누르면 그 그림을 쓰고, 「적용」 을 눌러야 팩에 들어가요. 정렬(최신 · 좋아요 · 적용)과 ‹ › 로 더 봐요. 「찾기」 는 다른 게임에 올라온 그림도 골라 쓰게 해 줘요.</li>
+  <li>칸 맨 앞 「올리기」 는 지금 팩에 저장된 그 종류의 그림을 올려요. 자동 검사를 통과하면 바로 모두에게 보이고, 애매하면 관리자가 보고 공개해요. 게임 · 종류마다 2장, 하루 500장, 한 장 4MB(PNG · JPEG · WebP)까지예요. 영상은 올릴 수 없어요.</li>
+  <li>내가 올린 것은 칸 앞쪽에 「내 것」 으로 보여요. 눌러서 상태를 보거나 지우고, 모두 보려면 「설정 › 계정」 의 「내가 올린 것」 으로 가요.</li>
+  <li>큰 그림 위 ⋯ 로 남의 그림을 신고해요. 남의 권리를 침해한 그림은 내려지고, 내려진 그림이 5번이 되면 올리기가 잠겨요.</li>
+</ul>
+<figure class="fig" id="fig-umb">
+<div class="screen"><div class="stage"><img src="assets/manual/umb.webp" alt="머리줄 「사용자 그림」 창의 순위 탭. 오늘 · 이번 주 · 이번 달 ♥ 와 누적 적용 판 넷에 10위까지 보이고, 오른쪽에 고른 사람의 그림 칸이 있다." width="1613" height="846" loading="lazy"><span class="box" data-n="1" style="--x:6.76%;--y:1.65%;--w:16.86%;--h:3.61%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:1.12%;--y:7.71%;--w:78.54%;--h:32.45%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:80.27%;--y:7.71%;--w:18.60%;--h:90.17%"><span class="num">3</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>탭</b> 순위 · 인기 그림 · 새로 올라온 것.</span></li><li data-n="2"><span class="num">2</span><span><b>순위 판 넷</b> 오늘 ♥ · 이번 주 ♥ · 이번 달 ♥ · 누적 적용. 10위까지, ‹ › 로 지난 판.</span></li><li data-n="3"><span class="num">3</span><span><b>사람 칸</b> 순위의 별명을 누르면 그 사람이 올린 그림이 떠요.</span></li></ol><a class="zoom" href="assets/manual/umb.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+<ul>
+  <li>머리줄 「사용자 그림」 을 누르면 모든 게임의 순위 · 인기 그림 · 새로 올라온 것을 봐요. 순위 판은 오늘 · 이번 주 · 이번 달 ♥ 와 누적 적용 넷이고, ‹ › 로 지난 판도 봐요. 별명을 누르면 그 사람이 올린 그림이 오른쪽에 떠요.</li>
+  <li>「인기 그림」 은 기간 · 기종 · 종류 · 「내 팩에 있는 게임만」 으로 걸러요. 그림 아래 「내 팩에서 열기」 는 그 게임의 메타 편집 창을 이 그림을 고른 채로 열어요.</li>
+  <li>이 기능이 꺼져 있거나 서버에 닿지 못하면 머리줄 단추와 메타 편집 창의 칸이 보이지 않아요.</li>
 </ul>
 </div>
 </section>
@@ -360,36 +400,37 @@ table.list tr:last-child td{border-bottom:0}
 <header><span class="ch">4</span><h2>한글패치</h2></header>
 <p class="lead">레트로디비(retrodb.info) 한글패치 목록을 보고, 배포처에서 직접 받은 패치를 원본 롬에 걸어 한글판을 만들어요. 앱이 패치를 대신 받아 주지는 않아요 — 받는 것은 브라우저고, 앱은 받은 파일을 정리하고 걸어요.</p>
 <!-- 사용법 영상은 저장소 video/ 에 둔다(10-22 0.7.0 화면으로 다시 만듦 · 예시 자료로 찍음). -->
-<figure class="vid"><div class="screen"><video controls preload="metadata" playsinline poster="video/hangul-patch-guide.jpg" width="1920" height="1080"><source src="video/hangul-patch-guide.webm" type="video/webm"></video></div><figcaption class="muted small">사용법 영상 · 8분 54초 · 소리가 나와요 — 목록 받기부터 패치 적용까지 한 번에 보여 줘요.</figcaption></figure>
+<figure class="vid"><div class="screen"><video controls preload="metadata" playsinline poster="video/hangul-patch-guide.jpg" width="1920" height="1080"><source src="video/hangul-patch-guide.webm" type="video/webm"></video></div><figcaption class="muted small">사용법 영상 · 8분 54초 · 소리가 나와요 — 목록을 받는 것부터 패치 적용까지 한 번에 보여 줘요(앞 판 화면이라 단추 이름이 조금 달라요).</figcaption></figure>
 
 <div class="sec" id="s-kr">
 <h3>한글패치 창</h3>
 <p>머리줄 「한글패치」 를 눌러요. 팩을 안 열어도 돼요. 받은 파일은 <code>KRPATCH/기종/게임/</code> 에 모아요.</p>
 <figure class="fig" id="fig-kr">
-<div class="screen"><div class="stage"><img src="assets/manual/kr.webp" alt="한글패치 창. 위에 목록 · 받은 파일 · 패치 적용 탭, 그 아래 고른 목록 탭의 찾기 줄과 목록 표, 맨 아래에 자리 설정이 있다." width="1613" height="810" loading="lazy"><span class="box" data-n="1" style="--x:0.25%;--y:6.05%;--w:99.49%;--h:5.80%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:1.30%;--y:17.90%;--w:97.38%;--h:5.62%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:65.39%;--y:27.10%;--w:32.64%;--h:5.59%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:0.25%;--y:95.86%;--w:99.49%;--h:3.64%"><span class="num">4</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>탭</b> 목록 · 받은 파일(다 받아진 파일을 게임 폴더로 옮겨요) · 패치 적용(원본 롬에 패치를 걸어요). 고른 탭이 창을 다 써요.</span></li><li data-n="2"><span class="num">2</span><span><b>찾기 · 목록</b> 기종 · 검색 · 보유로 걸러요. 「목록 받기」 는 본인 키로 목록을 받아요.</span></li><li data-n="3"><span class="num">3</span><span><b>줄 단추</b> 배포처 · 받는 중 · 패치 적용(또는 폴더 만들기) · ⋯</span></li><li data-n="4"><span class="num">4</span><span><b>자리</b> 받을 곳 · 받아 둔 곳 · 목록 · 기록 파일.</span></li></ol><a class="zoom" href="assets/manual/kr.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/kr.webp" alt="한글패치 창. 왼쪽에 찾기 줄과 목록 표, 오른쪽에 고른 게임의 받기 · 패치 적용 · 게임 폴더 칸, 맨 아래에 자리 단추가 있다." width="1613" height="810" loading="lazy"><span class="box" data-n="1" style="--x:0.25%;--y:6.91%;--w:71.22%;--h:6.40%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:0.25%;--y:28.09%;--w:71.20%;--h:5.52%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:71.47%;--y:6.91%;--w:28.27%;--h:89.14%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:95.57%;--y:96.26%;--w:3.55%;--h:3.12%"><span class="num">4</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>찾기 · 목록</b> 기종 · 검색 · 보유로 걸러요. ⋯ 에 다시 읽기 · 직접 더하기 · 폴더 점검 · 팩에 넣기가 있어요.</span></li><li data-n="2"><span class="num">2</span><span><b>고른 줄</b> 줄을 누르면 오른쪽 칸에 그 게임이 떠요. 줄에는 단추가 없어요.</span></li><li data-n="3"><span class="num">3</span><span><b>게임 칸</b> 고른 게임의 ① 받기 · ② 패치 적용 · ③ 게임 폴더를 한꺼번에 봐요.</span></li><li data-n="4"><span class="num">4</span><span><b>자리…</b> 받을 곳 · 받아 둔 곳 · 목록 · 기록 파일.</span></li></ol><a class="zoom" href="assets/manual/kr.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
-  <li>「보유」 칸은 받아 둔 폴더와 기록으로 정해요 — ✓ 날짜(가짐) · 옛 판 · 빈 폴더.</li>
-  <li>「목록 받기」 는 본인 키로 새로 오른 패치만 더해요. 키는 사이트에서 받아 「설정 › 한글패치 목록 API」 에 넣어요(「?」 단추에 신청 안내가 있어요). 키를 넣기 전에도 앱에 실린 목록으로 시작해요.</li>
-  <li>맨 아래 접힌 「자리」 에서 받을 곳 · 받아 둔 곳 · 목록 · 기록 파일 자리를 바꿔요. 자료 폴더를 나스에 두면 다른 컴퓨터와 같이 써요.</li>
+  <li>목록에서 줄을 누르면 오른쪽 칸에 그 게임의 ① 받기 · ② 패치 적용 · ③ 게임 폴더가 한꺼번에 떠요.</li>
+  <li>「보유」 칸은 받아 둔 폴더와 기록으로 정해요 — 원 원본 롬 · 패 받은 패치 · 본 패치한 롬. 날짜는 오른쪽 칸 머리에 보여요.</li>
+  <li>목록 머리 오른쪽 「목록 새로 받기」 는 사이트에서 새로 오른 패치를 받아 더해요. 키는 앱에 들어 있어 따로 신청하지 않아도 돼요. 받은 목록은 1시간 동안 다시 묻지 않아요.</li>
+  <li>맨 아래 「자리…」 에서 받을 곳 · 받아 둔 곳 · 목록 · 기록 파일 자리를 바꿔요. 자료 폴더를 나스에 두면 다른 컴퓨터와 같이 써요.</li>
 </ul>
 </div>
 
 <div class="sec" id="s-krget">
 <h3>받기</h3>
 <ol class="steps">
-  <li><span><b>감시 폴더 정하기</b>「받은 파일」 탭의 「감시 폴더」 를 브라우저가 파일을 내려받는 폴더로 맞춰요(처음 한 번).</span></li>
-  <li><span><b>「받는 중」 켜기</b>받을 게임 줄의 「받는 중」 을 눌러요. 게임 폴더와 그 안 <code>원본/</code> 을 만들고 받기 감시를 켜요. 한 번에 한 게임만 켜져요.</span></li>
-  <li><span><b>배포처에서 받기</b>「배포처」 를 눌러 브라우저에서 패치(필요하면 원본 롬도)를 받아요.</span></li>
+  <li><span><b>감시 폴더 정하기</b>① 받기의 「감시 폴더」 를 「바꾸기…」 로 브라우저가 파일을 내려받는 폴더에 맞춰요(처음 한 번).</span></li>
+  <li><span><b>「받기 감시 켜기」</b>목록에서 받을 게임을 고르고 ① 받기의 「받기 감시 켜기」 를 눌러요. 게임 폴더와 그 안 <code>원본/</code> 을 만들고 받기 감시를 켜요. 한 번에 한 게임만 켜지고, 단추는 「감시 끄기」 로 바뀌어요. 다른 게임을 보는 동안에는 목록 위 띠에 감시 중인 게임이 보여요. 처음 켤 때는 받은 게임 폴더를 둘 「받을 곳」 을 한 번 물어요.</span></li>
+  <li><span><b>배포처에서 받기</b>「배포처 ↗」 를 눌러 브라우저에서 패치(필요하면 원본 롬도)를 받아요.</span></li>
   <li><span><b>어디에 넣을지 고르기</b>파일이 다 받아질 때마다 「원본에 넣기」 · 「게임 폴더에 넣기」 · 「옮기지 않기」 를 물어요. 앱이 짐작한 쪽이 기본 단추예요.</span></li>
-  <li><span><b>패치 적용으로</b>원본과 패치가 다 모이면 「패치 적용」 탭으로 저절로 넘어가요. 「멈추기」 는 받기 감시만 꺼요.</span></li>
+  <li><span><b>패치 적용으로</b>원본과 패치가 다 모이면 그 게임의 ② 패치 적용 칸이 저절로 채워져요(다른 게임을 보고 있으면 그대로 둬요). 「감시 끄기」 는 받기 감시만 꺼요.</span></li>
 </ol>
 <details class="more"><summary>받은 파일마다 묻는 창</summary><div>
 <dl class="rules">
-  <dt>원본에 넣기</dt><dd>게임 폴더 안 <code>원본/</code> 으로 옮겨요. zip · 7z 는 풀어 넣고(맨 위 폴더 하나는 벗겨요) <b>압축 파일은 지워요(휴지통 아님)</b>. 같은 이름이 이미 있으면 덮지 않고 압축째 남겨 두고, 까닭을 「받은 파일」 표에 붙여요.</dd>
+  <dt>원본에 넣기</dt><dd>게임 폴더 안 <code>원본/</code> 으로 옮겨요. zip · 7z 는 풀어 넣고(맨 위 폴더 하나는 벗겨요) <b>압축 파일은 지워요(휴지통 아님)</b>. 같은 이름이 이미 있으면 덮지 않고 압축째 남겨 두고, 까닭을 ① 받기의 받은 파일 표에 붙여요.</dd>
   <dt>게임 폴더에 넣기</dt><dd>게임 폴더로 옮겨요. 패치 파일이 보통 여기로 가요. 같은 이름이 있으면 덮어요.</dd>
-  <dt>옮기지 않기</dt><dd>받은 폴더에 그대로 둬요. 「받은 파일」 표에도 안 남아요.</dd>
+  <dt>옮기지 않기</dt><dd>받은 폴더에 그대로 둬요. 받은 파일 표에도 안 남아요.</dd>
   <dt>묻지 않기</dt><dd>「이번 받기 동안 … 묻지 않고 여기에 넣기」 를 켜면 같은 종류(패치로 보이는 것 · 원본으로 보이는 것)는 그 뒤로 묻지 않고 같은 곳에 넣어요.</dd>
   <dt>나눈 압축</dt><dd>여러 조각으로 나눈 압축은 조각이 다 와야 한 번 물어요.</dd>
 </dl>
@@ -409,37 +450,38 @@ table.list tr:last-child td{border-bottom:0}
   <dt>제작자</dt><dd>괄호 하나에 목록의 제작자 이름만 적어요. 목록에 제작자가 없으면 <code>(제작자 모름)</code> 이에요. 제작자를 안 적은 폴더는 그 게임의 모든 제작자 줄에 이어요.</dd>
   <dt>메모와 날짜</dt><dd>괄호 <code>( )</code> · <code>[ ]</code> 안은 이름을 맞출 때 빼니 메모를 적어도 돼요. <code>(0823)</code> 처럼 월일 네 자리로 시작하면 받은 날로 읽고, 그때 나와 있던 판을 「보유」 에 적어요.</dd>
   <dt>결과</dt><dd>패치한 롬은 게임 폴더에 <code>&lt;원본 이름&gt; (k)[배포일].&lt;확장자&gt;</code> 로 생겨요. 배포일이 이름에 들어 있어서 다른 폴더로 옮긴 뒤에도 어느 판인지 알 수 있어요.</dd>
-  <dt>보유 칸</dt><dd>「받을 곳」 을 「받아 둔 곳」 과 다른 폴더로 두면 받기만 한 게임은 창을 다시 열 때 「보유」 에서 빠져요. 둘을 같은 폴더로 두면 편해요. 탐색기에서 폴더를 바꿨으면 「새로고침」 을 눌러요.</dd>
+  <dt>보유 칸</dt><dd>「받을 곳」 을 「받아 둔 곳」 과 다른 폴더로 두면 받기만 한 게임은 창을 다시 열 때 「보유」 에서 빠져요. 둘을 같은 폴더로 두면 편해요. 탐색기에서 폴더를 바꿨으면 목록 머리 ⋯ 메뉴의 「다시 읽기」 를 눌러요.</dd>
 </dl>
 </div></details>
 </div>
 
 <div class="sec" id="s-krapply">
 <h3>패치 걸기</h3>
-<p>폴더가 있는 줄의 「패치 적용」 을 누르면 「패치 적용」 탭이 열리고 그 게임이 채워져요.</p>
+<p>폴더가 있는 게임을 목록에서 고르면 오른쪽 ② 패치 적용 칸에 그 게임의 원본 · 패치가 채워져요.</p>
 <figure class="fig" id="fig-kr-apply">
-<div class="screen"><div class="stage"><img src="assets/manual/kr-apply.webp" alt="패치 적용 탭. 게임, 원본 롬, 패치 파일, 해시 표, 적용한 뒤 압축 체크와 패치 적용 단추가 있다." width="1577" height="632" loading="lazy"><span class="box" data-n="1" style="--x:2.85%;--y:7.12%;--w:96.18%;--h:5.30%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:3.80%;--y:21.52%;--w:95.24%;--h:5.30%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:4.50%;--y:28.72%;--w:90.48%;--h:5.30%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:0.95%;--y:65.65%;--w:6.83%;--h:3.12%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:8.29%;--y:64.56%;--w:5.53%;--h:5.30%"><span class="num">5</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>게임</b> 고르면 그 폴더의 패치와 원본 롬을 찾아 채워요.</span></li><li data-n="2"><span class="num">2</span><span><b>원본 롬</b> 게임 폴더의 원본/ 에서 골라요.</span></li><li data-n="3"><span class="num">3</span><span><b>패치 파일</b> xdelta · bps · ips, 압축 안의 패치도.</span></li><li data-n="4"><span class="num">4</span><span><b>적용한 뒤 압축</b> CD 기종 chd · GC/Wii rvz · 카트리지 zip · 3DS cia.</span></li><li data-n="5"><span class="num">5</span><span><b>패치 적용</b> 원본은 두고 「원본 이름 (k)[배포일]」 롬을 새로 만들어요.</span></li></ol><a class="zoom" href="assets/manual/kr-apply.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/kr-apply.webp" alt="오른쪽 게임 칸. 위에서부터 판 줄, 받기, 패치 적용(원본 롬 · 패치 파일 · 해시 · 적용한 뒤 압축 · 패치 적용 단추), 게임 폴더 파일 표가 있다." width="456" height="722" loading="lazy"><span class="box" data-n="1" style="--x:60.53%;--y:11.50%;--w:36.84%;--h:3.50%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:13.05%;--y:31.09%;--w:84.32%;--h:3.50%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:15.46%;--y:35.43%;--w:81.91%;--h:4.43%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:3.22%;--y:48.43%;--w:46.29%;--h:4.96%"><span class="num">4</span></span><span class="box" data-n="5" style="--x:0.59%;--y:64.47%;--w:99.41%;--h:11.33%"><span class="num">5</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>① 받기</b> 배포처를 열고 받기 감시를 켜요. 다 받아진 파일마다 어디에 넣을지 물어요.</span></li><li data-n="2"><span class="num">2</span><span><b>원본 롬</b> 게임 폴더의 원본/ 에서 골라요.</span></li><li data-n="3"><span class="num">3</span><span><b>패치 파일</b> xdelta · bps · ips, 압축 안의 패치도.</span></li><li data-n="4"><span class="num">4</span><span><b>패치 적용</b> 원본은 두고 「원본 이름 (k)[배포일]」 롬을 새로 만들어요. 「적용한 뒤 압축」 은 CD 기종 chd · GC/Wii rvz · 카트리지 zip · 3DS cia.</span></li><li data-n="5"><span class="num">5</span><span><b>③ 게임 폴더</b> 파일 이름을 바꾸거나 PC 휴지통으로 보내요.</span></li></ol><a class="zoom" href="assets/manual/kr-apply.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
   <li>앱이 고른 원본 · 패치에는 「자동」 배지가 붙어요. 「찾아보기…」 로 바꿀 수 있고, zip · 7z 를 고르면 안의 롬을 풀어 걸어요.</li>
-  <li>「해시」 는 원본이 패치가 바라는 롬인지 보여 줘요 — ✓ 맞아요 · ✗ 틀려요 · ? 미심쩍어요 · – 볼 것이 없어요. 패치 안의 값과 같이 받은 설명 글(checksums.txt · readme 등)의 해시로 견줘요.</li>
+  <li>「해시」 는 원본이 패치가 바라는 롬인지 보여 줘요 — ✓ 맞아요 · ✗ 틀려요 · ? 미심쩍어요 · – 볼 것이 없어요. 패치 안의 값과 같이 받은 설명 글(checksums.txt · readme 등)의 해시로 견줘요. 해시 값은 「해시 보기」 로 봐요.</li>
   <li>xdelta · bps · ips · ups 를 걸어요. CD 이미지가 오류 정정 값만 달라 안 걸리면 그 값을 다시 계산한 사본에 한 번 더 걸어요.</li>
   <li>앱 밖에서 직접 패치했으면 「적용 기록」 으로 「보유」 칸에 적어 둬요.</li>
 </ul>
 <div class="warn"><b>조심</b>
-<p>원본은 손대지 않고 복사본에 걸어요. 그런데 다 걸면 <b>이번 「받는 중」 으로 받은 패치 파일은 영구히 지워요</b>(dlc 가 든 것 등은 남겨요).</p>
+<p>원본은 손대지 않고 복사본에 걸어요. 다 걸면 걸었던 패치 파일을 PC 휴지통으로 보낼지 물어요(기본은 남기기 · dlc 가 든 것 등은 남겨요). 받을 곳이 나스면 휴지통이 없어 영구 삭제할지 한 번 더 물어요.</p>
 <p>「적용한 뒤 압축」 을 켜면 압축 전 결과 파일은 휴지통으로 가요. 받을 곳이 나스면 휴지통이 없어 영구 삭제예요.</p></div>
 </div>
 
 <div class="sec" id="s-krmore">
 <h3>그 밖에</h3>
 <ul>
-  <li>「직접 더하기…」: 목록에 없는 패치를 직접 더해요. 「목록 받기」 를 해도 남아요. 줄 ⋯ 메뉴의 「판 더하기…」 · 「고치기…」 로 줄을 손봐요.</li>
-  <li>「폴더 점검…」: 아무 롬 폴더나 골라 이름 끝의 <code>(k)[배포일]</code> 로 가진 판이 최신인지 봐요.</li>
-  <li>「팩에 넣기…」: 받아 둔 한글 롬 가운데 팩에 없는 것만 팩 기종 폴더로 복사해요. 팩 파일은 덮지도 지우지도 않아요. 넣은 뒤 「목록 갱신」 을 해야 팩 목록에 보여요.</li>
+  <li>목록 머리 ⋯ 메뉴의 「목록에 직접 더하기…」: 목록에 없는 패치를 직접 더해요. 「목록 새로 받기」 를 해도 남아요. 오른쪽 칸 머리 ⋯ 메뉴의 「판 더하기…」 · 「줄 고치기…」 로 줄을 손봐요. 목록 제목 뒤 「메」 를 누르면 게임 메모를 써요 — 메모가 있으면 색이 켜지고, 마우스를 올리면 메모가 보여요.</li>
+  <li>⋯ 메뉴의 「폴더 점검…」: 아무 롬 폴더나 골라 이름 끝의 <code>(k)[배포일]</code> 로 가진 판이 최신인지 봐요.</li>
+  <li>⋯ 메뉴의 「팩에 넣기…」: 받아 둔 한글 롬 가운데 팩에 없는 것만 팩 기종 폴더로 복사해요. 팩 파일은 덮지도 지우지도 않아요. 넣은 뒤 「팩 ▾ › 롬 폴더 모두 다시 읽기」 를 해야 팩 목록에 보여요.</li>
   <li>줄 제목 앞 재생 단추: 그 게임을 유튜브에서 찾아 앱 안에서 틀어 봐요. 굴려서 맨 아래까지 가면 더 받아요.</li>
-  <li>디스크 기종은 「패치 적용」 탭에 「디스크 풀기」 · 「m3u 로 묶기」 · 「롬 압축…」 같은 도구가 나와요.</li>
+  <li>③ 게임 폴더 표에서 파일 이름을 바꾸거나(「이름」) PC 휴지통으로 보내요(「휴지통」).</li>
+  <li>디스크 기종은 ② 패치 적용의 「기종 도구 ▾」 에 「디스크 풀기」 · 「m3u 로 묶기」 · 「롬 압축…」 같은 도구가 나와요.</li>
 </ul>
 </div>
 </section>
@@ -447,18 +489,18 @@ table.list tr:last-child td{border-bottom:0}
 <!-- ───────────── 5 기기로 보내기 ───────────── -->
 <section class="chap" id="export">
 <header><span class="ch">5</span><h2>기기로 보내기</h2></header>
-<p class="lead">팩을 RetroBat · Batocera · ROCKNIX · Pegasus · ES-DE 가 읽는 모양으로 내보내요. 머리줄 「내보내기…」 를 눌러요.</p>
+<p class="lead">팩을 RetroBat · Batocera · ROCKNIX · Pegasus · ES-DE 가 읽는 모양으로 내보내요. 머리줄 「내보내기…」(또는 「기기 ▾ › 내보내기…」)를 눌러요.</p>
 
 <div class="sec" id="s-export">
 <h3>내보내기</h3>
 <figure class="fig" id="fig-export">
-<div class="screen"><div class="stage"><img src="assets/manual/export.webp" alt="내보내기 창. 왼쪽 어디로, 가운데 무엇으로(프론트엔드), 아래 기종 표와 내보내기 단추가 있다." width="1400" height="810" loading="lazy"><span class="box" data-n="1" style="--x:1.29%;--y:6.91%;--w:28.20%;--h:81.48%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:30.34%;--y:6.91%;--w:28.20%;--h:81.48%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:59.61%;--y:17.35%;--w:38.89%;--h:18.65%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:92.86%;--y:94.14%;--w:5.86%;--h:4.14%"><span class="num">4</span></span></div></div>
+<div class="screen"><div class="stage"><img src="assets/manual/export.webp" alt="내보내기 창. 왼쪽 어디로, 가운데 무엇으로(프론트엔드), 아래 기종 표와 내보내기 단추가 있다." width="1613" height="846" loading="lazy"><span class="box" data-n="1" style="--x:1.12%;--y:6.76%;--w:28.35%;--h:81.94%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:30.21%;--y:6.76%;--w:28.35%;--h:81.94%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:59.47%;--y:17.12%;--w:39.23%;--h:18.13%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:93.34%;--y:94.11%;--w:5.54%;--h:4.23%"><span class="num">4</span></span></div></div>
 <figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>어디로</b> 팩 안에 메타만 · 롬 · 그림 복사 · 기기 메타에 보태기.</span></li><li data-n="2"><span class="num">2</span><span><b>무엇으로</b> RetroBat · Batocera · ROCKNIX / Pegasus / ES-DE.</span></li><li data-n="3"><span class="num">3</span><span><b>무엇을</b> 보낼 기종을 체크해요.</span></li><li data-n="4"><span class="num">4</span><span><b>내보내기</b></span></li></ol><a class="zoom" href="assets/manual/export.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <dl class="rules">
   <dt>팩 안에 메타만</dt><dd>팩 <code>roms/&lt;기종&gt;/</code> 에 목록 파일만 만들어요. 몇 초면 끝나요. 있던 목록 파일은 덮어써요.</dd>
   <dt>롬·그림 복사</dt><dd>롬 · 그림까지 폴더 · 커스텀 리눅스(SFTP) · 안드로이드(USB)로 보내요(<a href="#s-copy">아래</a>).</dd>
-  <dt>기기 메타에 보태기</dt><dd>기기에 이미 있는 목록에 제목 · 그림 자리만 보태요(<a href="#s-merge">아래</a>).</dd>
+  <dt>기기 메타에 보태기</dt><dd>기기에 이미 있는 목록에 팩 정보를 보태요 — 빈 설명 · 장르 따위만 채우고, 목록에 없는 게임은 끝에 붙여요(<a href="#s-merge">아래</a>).</dd>
 </dl>
 <p>프론트엔드는 셋이에요. RetroBat · Batocera · ROCKNIX 는 <code>gamelist.xml</code>, Pegasus 는 <code>metadata.pegasus.txt</code> 를 만들어요. ES-DE 는 메타 · 그림을 <code>ES-DE/</code> 아래로, 롬을 <code>ROMs/</code> 로 보내고 폴더 이름을 ES-DE 이름으로 바꿔요(예: 3ds → n3ds).</p>
 </div>
@@ -466,11 +508,12 @@ table.list tr:last-child td{border-bottom:0}
 <div class="sec" id="s-copy">
 <h3>롬·그림 복사</h3>
 <figure class="fig" id="fig-export-copy">
-<div class="screen"><div class="stage"><img src="assets/manual/export-copy.webp" alt="롬 · 그림 복사를 고른 내보내기 창. 어디로, 보낼 폴더, 보낼 것 옵션, 기종별 롬 · 그림 · 용량 표가 있다." width="1400" height="810" loading="lazy"><span class="box" data-n="1" style="--x:1.50%;--y:32.28%;--w:27.77%;--h:20.56%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:30.56%;--y:35.81%;--w:27.77%;--h:5.62%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:30.56%;--y:41.43%;--w:27.77%;--h:37.35%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:59.61%;--y:17.35%;--w:38.89%;--h:25.31%"><span class="num">4</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>어디로</b> 폴더 · 커스텀 리눅스(SFTP) · 안드로이드(USB).</span></li><li data-n="2"><span class="num">2</span><span><b>보낼 폴더</b> ROMs/&lt;시스템&gt;/ 이 생겨요.</span></li><li data-n="3"><span class="num">3</span><span><b>보낼 것</b> 그림 종류 · ROM 복사 · 겹칠 때 · 제목 · 게임 목록 교체/병합.</span></li><li data-n="4"><span class="num">4</span><span><b>기종 · 용량</b> 보낼 기종을 체크하면 옮길 롬 · 그림 · 크기가 보여요.</span></li></ol><a class="zoom" href="assets/manual/export-copy.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/export-copy.webp" alt="롬 · 그림 복사를 고른 내보내기 창. 어디로, 보낼 폴더, 보낼 것 옵션, 기종별 롬 · 그림 · 용량 표가 있다." width="1613" height="846" loading="lazy"><span class="box" data-n="1" style="--x:1.28%;--y:30.91%;--w:28.02%;--h:19.44%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:30.38%;--y:34.26%;--w:28.02%;--h:5.65%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:30.38%;--y:39.91%;--w:28.02%;--h:28.10%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:59.47%;--y:17.12%;--w:39.23%;--h:23.79%"><span class="num">4</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>어디로</b> 폴더 · 커스텀 리눅스(SFTP) · 안드로이드(USB).</span></li><li data-n="2"><span class="num">2</span><span><b>보낼 폴더</b> ROMs/&lt;기종&gt;/ 이 생겨요.</span></li><li data-n="3"><span class="num">3</span><span><b>보낼 것</b> 그림 종류 · 롬 복사 · 그림이 겹치면 · 제목 · 게임 목록 교체/병합.</span></li><li data-n="4"><span class="num">4</span><span><b>기종 · 용량</b> 보낼 기종을 체크하면 옮길 롬 · 그림 · 크기가 보여요.</span></li></ol><a class="zoom" href="assets/manual/export-copy.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
-  <li>이름 · 크기가 같은 파일은 건너뛰어요. 멈췄다가 다시 눌러도 이어서 가요. 내용만 바뀐 롬도 보내려면 「크기가 같아도 다시 보내기」 를 켜요.</li>
+  <li>이름 · 크기가 같은 파일은 건너뛰어요. 멈췄다가 다시 눌러도 이어서 가요. 내용만 바뀐 롬도 보내려면 「크기가 같아도 다시 보내기」 를 켜요. 켜도 기기의 세이브와 「목적지 것 두기」 로 지킨 그림은 덮지 않아요.</li>
+  <li>「그림이 겹치면」: 「팩 것으로 덮기」 는 크기가 다른 그림만 팩 것으로 바꾸고(크기가 같으면 같은 그림으로 보고 건너뛰어요), 「목적지 것 두기」 는 목적지 그림을 그대로 둬요. 롬에는 안 걸려요.</li>
   <li>「게임 표에서 체크한 게임만」 을 켜면 목록에서 체크한 게임만 보내요(게임 목록은 늘 「병합」).</li>
   <li>「제목」 은 한글 우선 또는 영어 제목 우선으로 골라요.</li>
   <li>Pegasus 의 실행 명령(launch)은 안드로이드 RetroArch 기준이에요. PC 용 Pegasus 로 보낼 때는 「고급」 에서 꺼요.</li>
@@ -480,7 +523,7 @@ table.list tr:last-child td{border-bottom:0}
 
 <div class="sec" id="s-merge">
 <h3>기기 메타에 보태기</h3>
-<p>기기(USB)를 훑어 기기 롬과 팩 게임을 이은 뒤, 기기 목록에 빈 제목 · 설명 · 그림 자리를 보태요. 기기에 있던 실행 명령 · 제목 · 그림 경로는 건드리지 않고, 롬 · 그림 파일도 옮기지 않아요.</p>
+<p>기기(USB)를 훑어 기기 롬과 팩 게임을 이은 뒤, 이어진 게임만 손봐요. 기기 목록에 줄이 있는 게임은 비어 있는 설명 · 인원 · 개발사 · 배급사 · 장르 · 출시일 · 평점만 채우고, 줄이 없는 게임은 끝에 새로 붙여요. 기기에 있던 실행 명령 · 제목 · 그림 경로는 건드리지 않고, 롬 · 그림 파일도 옮기지 않아요.</p>
 <ul>
   <li>「PC 에 저장」 은 결과를 폴더에 두기만 해요. 「기기에 넣기」 는 확인 창을 거쳐 기기 파일을 바로 바꾸고, 원본은 저장 폴더 아래 <code>_backup</code> 에 챙겨요.</li>
   <li>「이름이 비슷한 것도 잇기」 를 켜면 파일 이름이 조금 다른 것도 이어요. 이은 것은 표에 따로 보여요.</li>
@@ -489,9 +532,9 @@ table.list tr:last-child td{border-bottom:0}
 
 <div class="sec" id="s-setup">
 <h3>기기 설정 옮기기</h3>
-<p>머리줄 「기기 설정…」 은 안드로이드 기기의 Pegasus · 에뮬레이터 설정 폴더를 팩 안 <code>devices/</code> 에 저장해 두고 새 기기에 그대로 넣어요. 롬 · 그림은 이 창이 아니라 「내보내기」 가 보내요.</p>
+<p>머리줄 「기기 ▾ › 기기 설정…」 은 안드로이드 기기의 Pegasus · 에뮬레이터 설정 폴더를 팩 안 <code>devices/</code> 에 저장해 두고 새 기기에 그대로 넣어요. 롬 · 그림은 이 창이 아니라 「내보내기」 가 보내요.</p>
 <figure class="fig" id="fig-setup">
-<div class="screen"><div class="stage"><img src="assets/manual/setup.webp" alt="기기 설정 창. 방향 카드 셋, 기기 고르기, 기기 훑기와 팩에 저장 단추가 있다." width="1180" height="354" loading="lazy"><span class="box" data-n="1" style="--x:1.53%;--y:15.82%;--w:96.95%;--h:19.77%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:1.53%;--y:37.85%;--w:96.95%;--h:19.69%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:28.19%;--y:62.06%;--w:7.39%;--h:9.46%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:91.08%;--y:86.50%;--w:7.39%;--h:9.46%"><span class="num">4</span></span></div></div>
+<div class="screen"><div class="stage"><img src="assets/manual/setup.webp" alt="기기 설정 창. 방향 카드 셋, 기기 고르기, 기기 훑기와 팩에 저장 단추가 있다." width="1180" height="423" loading="lazy"><span class="box" data-n="1" style="--x:1.53%;--y:13.52%;--w:96.95%;--h:31.75%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:1.53%;--y:47.16%;--w:96.95%;--h:16.36%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:28.11%;--y:67.30%;--w:8.08%;--h:8.46%"><span class="num">3</span></span><span class="box" data-n="4" style="--x:90.40%;--y:88.13%;--w:8.08%;--h:8.46%"><span class="num">4</span></span></div></div>
 <figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>방향</b> 기기 → 팩에 저장 · 팩 → 기기에 넣기 · 묶음(zip) → 팩에 저장.</span></li><li data-n="2"><span class="num">2</span><span><b>기기</b> USB 로 붙은 기기예요. 없으면 「다시 찾기」.</span></li><li data-n="3"><span class="num">3</span><span><b>기기 훑기</b> 설정 폴더를 찾아 표에 보여요(캐시 · 로그는 빼요).</span></li><li data-n="4"><span class="num">4</span><span><b>팩에 저장</b> 팩 안 devices/&lt;이름&gt;/ 에 저장해요.</span></li></ol><a class="zoom" href="assets/manual/setup.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <ul>
@@ -499,7 +542,7 @@ table.list tr:last-child td{border-bottom:0}
   <li>캐시 · 로그는 빼고 저장해요. 같은 이름으로 다시 저장하면 고른 항목만 갈아끼워요.</li>
   <li>「묶음(zip) → 팩에 저장」 은 기기 없이 내부 저장소를 통째로 담은 zip 에서 저장해요.</li>
 </ul>
-<div class="warn"><b>조심</b>「팩 → 기기에 넣기」 는 두 번 눌러야 돌아요. 같은 이름 파일은 덮어쓰고 다른 파일은 지우지 않아요. 기기의 Pegasus 설정은 먼저 <code>devices/_backup/</code> 에 챙겨요.</div>
+<div class="warn"><b>조심</b>「팩 → 기기에 넣기」 는 같은 이름 파일을 덮어쓰고 다른 파일은 지우지 않아요. 넣기 전에 기기의 지금 설정을 백업할지 물어요 — 「백업하고 넣기」 · 「백업 없이 넣기」 · 「그만두기」(Pegasus 설정은 늘 백업해요). 백업은 팩 <code>devices/_backup/</code> 에 두고 저장본 목록에 「넣기 전 백업」 으로 나와요 — 그것을 골라 넣으면 되돌려요. 「백업 없이 넣기」 로 덮인 에뮬레이터 설정은 되돌릴 수 없어요.</div>
 </div>
 </section>
 
@@ -507,21 +550,46 @@ table.list tr:last-child td{border-bottom:0}
 <section class="chap" id="settings">
 <header><span class="ch">6</span><h2>설정·업데이트</h2></header>
 <p class="lead">머리줄 오른쪽 끝 톱니바퀴를 눌러요. 왼쪽 탭마다 따로 저장해요. 키와 비밀번호는 이 PC 안에서 Windows 가 주는 열쇠로 잠가 보관해요.</p>
+
+<div class="sec" id="s-settings">
+<h3>설정 창</h3>
 <figure class="fig" id="fig-settings">
-<div class="screen"><div class="stage"><img src="assets/manual/settings.webp" alt="설정 창. 왼쪽 탭 줄과 ScreenScraper 아이디 · 비밀번호 칸, 저장 · 계정 확인 단추가 있다." width="1184" height="359" loading="lazy"><span class="box" data-n="1" style="--x:0.51%;--y:14.21%;--w:16.89%;--h:85.79%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:18.58%;--y:33.43%;--w:52.36%;--h:20.89%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:84.53%;--y:57.10%;--w:12.94%;--h:9.33%"><span class="num">3</span></span></div></div>
-<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>탭</b> ScreenScraper · AI 글 · AI 미디어 · 한글패치 목록 API · 테마 · 업데이트.</span></li><li data-n="2"><span class="num">2</span><span><b>계정</b> 본인 ScreenScraper 아이디 · 비밀번호(무료 가입).</span></li><li data-n="3"><span class="num">3</span><span><b>저장 · 계정 확인</b> 탭마다 따로 저장해요.</span></li></ol><a class="zoom" href="assets/manual/settings.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+<div class="screen"><div class="stage"><img src="assets/manual/settings.webp" alt="설정 창. 왼쪽 탭 줄과 ScreenScraper 아이디 · 비밀번호 칸, 저장 · 계정 확인 단추가 있다." width="1184" height="413" loading="lazy"><span class="box" data-n="1" style="--x:0.51%;--y:12.11%;--w:17.74%;--h:87.89%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:19.43%;--y:29.08%;--w:52.36%;--h:17.99%"><span class="num">2</span></span><span class="box" data-n="3" style="--x:83.56%;--y:49.49%;--w:13.91%;--h:8.67%"><span class="num">3</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>탭</b> 계정 · ScreenScraper · AI 글 · AI 미디어 · 단축키 · 테마 · 업데이트 · 진단.</span></li><li data-n="2"><span class="num">2</span><span><b>ScreenScraper 계정</b> 본인 ScreenScraper 아이디 · 비밀번호(무료 가입).</span></li><li data-n="3"><span class="num">3</span><span><b>저장 · 계정 확인</b> 탭마다 따로 저장해요.</span></li></ol><a class="zoom" href="assets/manual/settings.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
 </figure>
 <dl class="rules">
+  <dt>계정</dt><dd>Create Pack 계정. 「사용자 그림」 을 올리거나 ♥ 를 누르려면 여기서 카카오 · 구글로 로그인해요(<a href="#s-um">3장 사용자 그림</a>). 팩 정리 · 스크래핑 · 한글패치는 로그인 없이 다 돼요.</dd>
   <dt>ScreenScraper</dt><dd>본인 계정. 「계정 확인」 으로 오늘 남은 조회 수를 봐요.</dd>
   <dt>AI 글 채우기 · 번역</dt><dd>Gemini · ChatGPT · Claude 중에 고르고 그 키를 넣어요. 「키 확인 · 모델 받기」 로 모델 목록을 받아요. 구독과 API 결제는 따로예요.</dd>
-  <dt>AI 미디어 한글화 · 편집</dt><dd>그림 한글화와 AI 누끼 따기가 쓸 서비스(Gemini · OpenAI)와 이미지 모델. OpenAI 키는 ChatGPT 키와 같은 자리예요. 저장만으로는 아무 요청도 보내지 않아요.</dd>
-  <dt>한글패치 목록 API</dt><dd>목록 받기 키. 받은 목록은 1시간 동안 다시 묻지 않아요. 30일 동안 안 쓴 키는 사이트가 폐기해요.</dd>
-  <dt>테마</dt><dd>크림 · 검정. 고르면 바로 바뀌어요.</dd>
-  <dt>업데이트</dt><dd>「켤 때 새 판이 있는지 확인」 을 켜 두면 켤 때마다 봐요. 「지금 확인」 으로 바로 볼 수도 있어요.</dd>
+  <dt>AI 미디어 한글화 · 편집</dt><dd>미디어 한글화와 AI 누끼 따기가 쓸 서비스(Gemini · OpenAI)와 이미지 모델. OpenAI 키는 ChatGPT 키와 같은 자리예요. 저장만으로는 아무 요청도 보내지 않아요.</dd>
+  <dt>단축키</dt><dd>메인 화면 · 메타 편집 창의 키를 바꿔요. 「바꾸기」 를 누르고 쓸 키를 누르면 바로 쓰여요(Esc 는 그만두기). 「모두 처음 키로」 로 되돌려요.</dd>
+  <dt>테마</dt><dd>크림 · 검정 · 회색 · 보라 · 오락실 다섯 가지. 고르면 바로 바뀌어요. 같은 탭의 「화면 크기」 는 「자동」 이면 창이 작을 때 화면을 줄여 더 많이 보여 주고, 글자가 흐려 보이면 80 ~ 110% 중에 정해 둬요.</dd>
+  <dt>업데이트 · 진단</dt><dd>「켤 때 새 판이 있는지 확인」 을 켜 두면 켤 때마다 봐요. 「지금 확인」 으로 바로 볼 수도 있어요. 「진단 정보 복사」 는 앱 판 · Windows 판과 최근 오류 기록을 복사해요 — 문의할 때 붙여 넣어요(홈 폴더 · 나스 이름 · 주소 속 계정은 가려져요).</dd>
 </dl>
 <div class="note"><b>업데이트</b>
 <p>새 판이 있으면 「새 판이 나왔어요」 창이 떠요. 「바뀐 점 보기」 로 이 사이트의 업데이트 내역을 열 수 있어요.</p>
-<p>「확인」 을 누르면 받아서 exe 를 갈아끼우고 다시 켜요. 옛 exe 는 같은 폴더에 <code>.old</code> 로 남았다가 다음에 켤 때 지워져요. 「취소」 는 이번만 넘기고 다음에 켤 때 또 물어요.</p></div>
+<p>「확인」 을 누르면 받아서 exe 를 갈아끼우고 다시 켜요. 받은 파일이 우리가 낸 것인지 서명으로 확인하고, 맞지 않으면 바꾸지 않아요. 옛 exe 는 같은 폴더에 <code>.old</code> 로 남았다가 다음에 켤 때 지워져요. 「취소」 는 이번만 넘기고 다음에 켤 때 또 물어요.</p></div>
+<figure class="fig" id="fig-theme">
+<div class="screen"><div class="stage"><img src="assets/manual/theme.webp" alt="설정 창의 테마 탭. 크림 · 검정 · 회색 · 보라 · 오락실 다섯 테마와 화면 크기 자동 · 80 · 90 · 100 · 110% 고르개가 있다." width="1184" height="413" loading="lazy"><span class="box" data-n="1" style="--x:19.43%;--y:26.66%;--w:43.92%;--h:20.73%"><span class="num">1</span></span><span class="box" data-n="2" style="--x:19.43%;--y:66.44%;--w:43.92%;--h:12.86%"><span class="num">2</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>테마</b> 크림 · 검정 · 회색 · 보라 · 오락실. 고르면 바로 바뀌어요.</span></li><li data-n="2"><span class="num">2</span><span><b>화면 크기</b> 「자동」 은 창이 작으면 화면을 줄여요. 글자가 흐리면 80 ~ 110% 중에 정해 둬요.</span></li></ol><a class="zoom" href="assets/manual/theme.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+</div>
+
+<div class="sec" id="s-account">
+<h3>계정</h3>
+<p>「사용자 그림」(<a href="#s-um">3장</a>)에 그림을 올리거나 ♥ 를 누를 때만 필요한 Create Pack 계정이에요. 팩 정리 · 스크래핑 · 한글패치 · 내보내기는 로그인 없이 다 돼요.</p>
+<figure class="fig" id="fig-account">
+<div class="screen"><div class="stage"><img src="assets/manual/account.webp" alt="설정 창의 계정 탭. 카카오로 시작하기 · 구글로 시작하기 단추와 안내 글, 아래에 이용약관 · 개인정보 처리방침 링크가 있다." width="1184" height="413" loading="lazy"><span class="box" data-n="1" style="--x:19.43%;--y:40.90%;--w:25.82%;--h:8.67%"><span class="num">1</span></span></div></div>
+<figcaption><ol class="legend"><li data-n="1"><span class="num">1</span><span><b>로그인</b> 카카오 · 구글 계정으로. 처음이면 가입 동의 창이 떠요. 따로 된 비밀번호는 없어요.</span></li></ol><a class="zoom" href="assets/manual/account.webp" target="_blank" rel="noopener">그림 크게 보기</a></figcaption>
+</figure>
+<ul>
+  <li>「카카오로 시작하기」 · 「구글로 시작하기」 를 누르면 브라우저에서 로그인하고, 끝나면 앱의 창이 저절로 닫혀요. 처음이면 가입 동의 창이 떠서 넷(만 14세 · 이용약관 · 개인정보 처리방침 · 올리는 그림의 권리)에 모두 동의해야 가입돼요. 따로 된 비밀번호는 없어요.</li>
+  <li>앱이 받는 것은 카카오 · 구글의 회원 번호뿐이에요. 이메일 · 실명 · 프로필 사진은 받지 않아요.</li>
+  <li>로그인 뒤 「별명 정하기」 로 별명을 정해요(완성된 한글 · 영문 · 숫자 2~12자 · 다른 사람과 겹치면 안 돼요). 그림을 올리거나 ♥ 를 누르려면 별명이 있어야 해요.</li>
+  <li>왼쪽 카드에 올린 그림 · 받은 ♥ · 적용 수 · 이번 달 순위가 보여요. 「순위에 안 나오기」 를 켜면 순위 판에서 빠지고 그림의 별명은 그대로 보여요. 오른쪽 「내가 올린 것」 표에서 상태(공개됨 · 확인 중 · 숨겨짐 · 내려짐 · 거절됨)를 보고 지워요.</li>
+  <li>「로그아웃」 은 이 PC 에서만 풀려요. 「탈퇴…」 는 계정과 내가 누른 ♥ 를 지워요. 올린 그림은 남고 별명이 「탈퇴한 사람」 으로 바뀌며 그 그림의 ♥ · 적용 수는 0 이 돼요 — 지울 그림은 탈퇴 전에 지워 주세요. 탈퇴하면 3일 동안 다시 가입할 수 없어요.</li>
+</ul>
+</div>
 </section>
 
 <!-- ───────────── 7 알아 둘 것 ───────────── -->
@@ -534,15 +602,15 @@ table.list tr:last-child td{border-bottom:0}
 <div class="table-wrap"><table class="list">
   <thead><tr><th>어디서</th><th>무엇을 누르면</th><th>무엇이 사라지나</th></tr></thead>
   <tbody>
-    <tr><td>휴지통</td><td>「비우기」 · 「영구 삭제」</td><td>그 게임의 롬 · 그림 · 제목</td></tr>
+    <tr><td>휴지통</td><td>「모두 영구 삭제」 · 「영구 삭제」</td><td>그 게임의 롬 · 그림 · 제목</td></tr>
+    <tr><td>외부 기기 팩</td><td>「영구 삭제」</td><td>기기의 롬 · 그림 — 기기에는 휴지통이 없어요</td></tr>
     <tr><td>게임 목록</td><td>「선택 합치기」</td><td>합친 것을 푸는 기능이 없어요</td></tr>
-    <tr><td>롬 폴더 다시 읽기 · 목록 갱신</td><td>「없어진 롬만 빼기」 · 「목록 갱신」</td><td>파일이 없어진 게임에 적어 둔 제목 · 설명</td></tr>
     <tr><td>그림 편집</td><td>「적용」</td><td>같은 자리에 있던 그림</td></tr>
-    <tr><td>AI 미디어 한글화</td><td>「선택한 결과 일괄 적용…」</td><td>바꾼 자리의 옛 그림</td></tr>
+    <tr><td>AI 미디어 한글화 (외부 기기 팩)</td><td>「고른 것 적용…」</td><td>기기에 있던 옛 그림</td></tr>
     <tr><td>한글패치 받기</td><td>「원본에 넣기」</td><td>받은 zip · 7z(풀어 넣은 뒤)</td></tr>
-    <tr><td>한글패치 적용</td><td>「패치 적용」 이 끝나면</td><td>이번 「받는 중」 으로 받은 패치 파일</td></tr>
-    <tr><td>한글패치 (나스 자리)</td><td>⋯ 메뉴 「영구히 지우기」 · 압축</td><td>나스에는 휴지통이 없어요</td></tr>
+    <tr><td>한글패치 (나스 자리)</td><td>오른쪽 칸 ⋯ 메뉴 · ③ 게임 폴더 「PC 휴지통으로」 · 압축 · 걸었던 패치 보내기</td><td>나스에는 PC 휴지통이 없어 한 번 더 물은 뒤 영구 삭제해요</td></tr>
     <tr><td>내보내기</td><td>게임 목록 「전체 교체」</td><td>기기 목록에 있던 실행 명령(launch)</td></tr>
+    <tr><td>기기 설정</td><td>「백업 없이 넣기」</td><td>기기에 있던 에뮬레이터 설정(같은 이름 파일)</td></tr>
   </tbody>
 </table></div>
 </div>
@@ -551,8 +619,9 @@ table.list tr:last-child td{border-bottom:0}
 <h3>계정 · 키 · 요금</h3>
 <ul>
   <li>ScreenScraper 는 무료 계정이고, 계정마다 하루 조회 수가 정해져 있어요.</li>
-  <li>AI 기능(글 채우기 · 번역 · 그림 한글화 · 누끼 따기)은 본인 키로 각 서비스에 요청해요. 요금은 그 서비스에 나가고, ChatGPT · Gemini 구독과는 따로예요.</li>
+  <li>AI 기능(글 채우기 · 번역 · 미디어 한글화 · 누끼 따기)은 본인 키로 각 서비스에 요청해요. 요금은 그 서비스에 나가고, ChatGPT · Gemini 구독과는 따로예요.</li>
   <li>키는 이 PC 안에만 보관하고 그 서비스에 요청할 때만 써요. 이 사이트에는 모이지 않아요.</li>
+  <li>Create Pack 계정(카카오 · 구글 로그인)은 「사용자 그림」 에만 쓰고 무료예요. 받는 것은 그 서비스의 회원 번호뿐이에요.</li>
 </ul>
 </div>
 

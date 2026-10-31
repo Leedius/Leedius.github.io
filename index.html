@@ -130,14 +130,14 @@
   <p class="sub">팩은 <code>library.json</code> 이 든 폴더 하나예요. 롬은 <code>roms/&lt;기종&gt;/</code>, 그림은 <code>media/</code> 에 모여요.</p>
   <div class="steps">
     <article class="step">
-      <div class="screen"><img src="assets/manual/sysadd.webp" alt="시스템 추가 창" loading="lazy" width="520" height="400"></div>
+      <div class="screen"><img src="assets/manual/sysadd.webp" alt="기종 추가 창" loading="lazy" width="520" height="400"></div>
       <h3>기종째 담기</h3>
       <p>롬 폴더를 고르면 기종 하나로 담아요. 폴더에 <code>gamelist.xml</code> · <code>metadata.pegasus.txt</code> 가 있으면 제목 · 설명 · 그림도 같이 가져와요. 팩 밖 폴더는 원본을 그대로 두고 복사해 와요.</p>
     </article>
     <article class="step">
       <div class="screen"><img src="assets/manual/editor.webp" alt="게임 메타 편집 창" loading="lazy" width="1180" height="765"></div>
       <h3>빈 칸 채우기</h3>
-      <p>ScreenScraper · libretro 에서 찾은 후보를 골라 한 게임씩 고치거나, 「일괄 스크래핑」 으로 기종째 찾아 골라 넣어요. 빈 영어 제목 · 장르 같은 칸은 AI 에게 한꺼번에 물어요.</p>
+      <p>ScreenScraper · libretro 에서 찾은 게임을 골라 한 게임씩 고치거나, 「ScreenScraper · libretro 로 채우기」 로 기종째 찾아 골라 넣어요. 빈 영어 제목 · 장르 같은 칸은 AI 에게 한꺼번에 물어요.</p>
     </article>
     <article class="step">
       <div class="screen"><img src="assets/manual/export.webp" alt="내보내기 창" loading="lazy" width="1400" height="810"></div>
@@ -156,8 +156,8 @@
       <div><h3>한글패치</h3><p>한글패치 목록을 보고 배포처에서 받은 패치를 정리해, 원본 롬에 걸어 <code>(k)</code> 판을 만들어요. 해시 확인 · 압축까지 해요.</p></div>
     </article>
     <article class="card">
-      <div class="pic"><img src="assets/manual/bulk.webp" alt="일괄 스크래핑 창" loading="lazy" width="1180" height="344"></div>
-      <div><h3>일괄 스크래핑</h3><p>기종째 빈 그림 · 글을 찾아요. 롬 해시나 파일 이름으로 확실히 맞춘 것만 미리 체크해 두고, 나머지는 보고 골라요.</p></div>
+      <div class="pic"><img src="assets/manual/bulk.webp" alt="ScreenScraper · libretro 로 채우기 창" loading="lazy" width="1180" height="344"></div>
+      <div><h3>기종째 채우기</h3><p>기종째 빈 그림 · 글을 찾아요. 롬 해시나 파일 이름으로 확실히 맞춘 것만 미리 체크해 두고, 나머지는 보고 골라요.</p></div>
     </article>
     <article class="card">
       <div class="pic"><img src="assets/manual/img.webp" alt="그림 편집 창" loading="lazy" width="1280" height="810"></div>
@@ -165,7 +165,7 @@
     </article>
     <article class="card">
       <div class="pic"><img src="assets/manual/aibatch.webp" alt="AI로 채우기 창" loading="lazy" width="1180" height="214"></div>
-      <div><h3>AI 채우기 · 한글화</h3><p>빈 칸은 AI 에게 묻고, 표지 속 글자는 한글 제목으로 다시 그려요. 글은 Gemini · ChatGPT · Claude, 그림은 Gemini · OpenAI 의 본인 키로 써요.</p></div>
+      <div><h3>AI 채우기 · AI 미디어 한글화</h3><p>빈 칸은 AI 에게 묻고, 표지 속 글자는 한글 제목으로 다시 그려요. 그리기 전에 글 AI 가 그림 속 글을 읽어 원문 → 한국어 표로 보여 주니 고쳐서 다시 그릴 수 있어요. 글은 Gemini · ChatGPT · Claude, 그림은 Gemini · OpenAI 의 본인 키로 써요.</p></div>
     </article>
     <article class="card">
       <div class="pic"><img src="assets/manual/setup.webp" alt="기기 설정 창" loading="lazy" width="1180" height="354"></div>
