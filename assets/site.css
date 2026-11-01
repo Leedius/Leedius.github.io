@@ -91,7 +91,8 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 16px;
+  /* 고정한 머리줄 높이 + 16px — 목차 링크로 옮긴 제목이 머리줄에 가리지 않게 한다 */
+  scroll-padding-top: 96px;
 }
 body {
   margin: 0;
@@ -165,8 +166,15 @@ h3 {
   }
 }
 
-/* 머리 띠 — 앱 머리줄처럼 아이콘 · 빨간 PressStart2P 로고 · 굵은 아래 선 */
+/* 머리 띠 — 앱 머리줄처럼 아이콘 · 빨간 PressStart2P 로고 · 굵은 아래 선.
+   스크롤해도 창 맨 위에 남는다. 좌우 여백까지 바탕색으로 덮어 지나가는 그림자가 옆으로 비치지 않게 한다. */
 header.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  box-shadow: 0 0 0 100vmax var(--bg);
+  clip-path: inset(0 -100vmax);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -213,6 +221,30 @@ header.top nav a[aria-current] {
   border-color: var(--ink);
   background: var(--panel);
   box-shadow: var(--shadow);
+}
+
+/* 좁은 화면 — 고정한 머리줄이 화면을 덜 차지하게 메뉴를 한 줄로 두고 옆으로 밀어 본다.
+   다음 메뉴가 살짝 보이게 여백을 줄이고, 옆으로 미는 칸이 그림자를 자르지 않게 아래 자리를 칸 안에 둔다. */
+@media (max-width: 999px) {
+  html {
+    scroll-padding-top: 116px;
+  }
+  header.top {
+    padding-block: 10px 0;
+    gap: 6px 20px;
+  }
+  header.top nav {
+    flex-wrap: nowrap;
+    gap: 2px;
+    width: 100%;
+    padding-bottom: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  header.top nav a,
+  header.top nav button {
+    padding-inline: 6px;
+  }
 }
 
 /* 단추 — 앱 단추와 같다. 누르면 그림자만큼 내려앉는다. */

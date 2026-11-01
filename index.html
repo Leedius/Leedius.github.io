@@ -101,7 +101,7 @@
 <div class="wrap">
 <header class="top">
   <a class="logo" href="./"><img src="assets/icon.png" alt="" width="32" height="32">CREATE PACK</a>
-  <nav aria-label="바로 가기"><a href="#how">쓰는 법</a><a href="#more">기능</a><a href="manual.html">설명서</a><a href="updates.html">업데이트 내역</a><button type="button" data-feedback>의견 보내기</button></nav>
+  <nav aria-label="바로 가기"><a href="#how">쓰는 법</a><a href="#more">기능</a><a href="manual.html">설명서</a><a href="updates.html">업데이트 내역</a><button type="button" data-feedback>의견 보내기</button><button type="button" data-donate>서버 운영비 후원</button></nav>
 </header>
 
 <main>
@@ -254,7 +254,7 @@
 // 서버 운영비 후원 — 단추를 누르면 QR 창을 연다.
 (() => {
   const dialog = document.getElementById('donate');
-  document.querySelector('[data-donate]').addEventListener('click', () => dialog.showModal());
+  document.querySelectorAll('[data-donate]').forEach((b) => b.addEventListener('click', () => dialog.showModal()));
   dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
 })();
 
