@@ -65,10 +65,10 @@
 .end p{color:var(--dim);max-width:52ch;margin:0 0 24px}
 
 /* 의견 보내기 창 — 글은 Cloudflare Worker 를 거쳐 개발자 텔레그램으로 간다 */
-#feedback{width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);background:var(--panel2);color:var(--text);border:3px solid var(--ink);box-shadow:var(--shadow-lg);padding:clamp(20px,4vw,28px)}
-#feedback::backdrop{background:rgb(42 35 32/.6)}
+#feedback,#donate{width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);background:var(--panel2);color:var(--text);border:3px solid var(--ink);box-shadow:var(--shadow-lg);padding:clamp(20px,4vw,28px)}
+#feedback::backdrop,#donate::backdrop{background:rgb(42 35 32/.6)}
 #feedback form{display:grid;gap:14px}
-#feedback .note{margin:0;color:var(--dim);font-size:14px}
+#feedback .note,#donate .note{margin:0;color:var(--dim);font-size:14px}
 #feedback fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
 #feedback legend{font-weight:700;padding:0;margin-bottom:6px;width:100%}
 #feedback label{display:inline-flex;align-items:center;gap:6px}
@@ -79,7 +79,13 @@
 #feedback .field>span{font-weight:700}
 #fb-status{margin:0;min-height:1.7em;font-size:14.5px}
 #fb-status.bad{color:var(--danger-text)}
-#feedback .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+#feedback .actions,#donate .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+
+/* 서버 운영비 후원 창 — 카카오페이 송금 주소는 휴대폰에서만 열리고 PC 브라우저에는 404 를 줘서 QR 을 찍게 한다 */
+#donate[open]{display:grid;gap:14px;justify-items:center;text-align:center}
+#donate h2{margin:0}
+#donate .qr{display:block;width:220px;height:220px;max-width:100%}
+@media (hover:hover) and (pointer:fine){#donate .phone-only{display:none}}
 
 @media (max-width:900px){
   .steps,.cards,.facts{grid-template-columns:minmax(0,1fr)}
@@ -196,6 +202,7 @@
     <a class="btn" href="manual.html">사용 설명서</a>
     <button type="button" class="btn" data-feedback>의견 보내기</button>
     <a class="btn" href="https://open.kakao.com/o/sHHxYKPi" target="_blank" rel="noopener">카카오톡 오픈채팅</a>
+    <button type="button" class="btn" data-donate>서버 운영비 후원</button>
   </div>
 </section>
 </main>
@@ -205,6 +212,19 @@
   <span>화면은 예시 팩으로 찍었어요 · 2026-10</span>
 </footer>
 </div>
+
+<!-- 서버 운영비 후원 창. QR 은 assets/kakaopay-qr.svg 이고 아래 주소를 그대로 담았다. 주소를 바꾸면 QR 도 다시 만든다.
+     주소를 바로 여는 단추는 휴대폰 화면에서만 보인다(PC 브라우저에서는 404 라서). -->
+<dialog id="donate" aria-labelledby="dn-title">
+  <h2 id="dn-title">서버 운영비 후원</h2>
+  <p class="note">서버 운영비에 보태 주실 분만 편하게 보내 주세요. 보내지 않아도 모든 기능을 그대로 쓸 수 있어요.</p>
+  <img class="qr" src="assets/kakaopay-qr.svg" width="220" height="220" loading="lazy" alt="카카오페이 송금코드 QR">
+  <p class="note">카카오톡 스캐너나 휴대폰 카메라로 찍어 주세요.</p>
+  <div class="actions">
+    <a class="btn primary phone-only" href="https://qr.kakaopay.com/FW1607gRo" target="_blank" rel="noopener">카카오페이 열기</a>
+    <button type="button" class="btn" data-close>닫기</button>
+  </div>
+</dialog>
 
 <!-- 의견 보내기 창. action 은 Cloudflare Worker 주소, data-sitekey 는 Turnstile 공개 키다(둘 다 비밀이 아니다).
      봇 토큰은 Worker 에만 있다 — 이 저장소가 공개라서 페이지에 두면 누구나 가져간다. -->
@@ -231,6 +251,13 @@
   </form>
 </dialog>
 <script>
+// 서버 운영비 후원 — 단추를 누르면 QR 창을 연다.
+(() => {
+  const dialog = document.getElementById('donate');
+  document.querySelector('[data-donate]').addEventListener('click', () => dialog.showModal());
+  dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+})();
+
 // 의견 보내기 — 창을 처음 열 때 Turnstile(사람 확인) 스크립트를 불러 방문자마다 Cloudflare 를 부르지 않게 한다.
 // 보낼 때는 FormData 를 그대로 Worker 로 보낸다. 위젯이 폼 안에 cf-turnstile-response 칸을 스스로 넣는다.
 (() => {
