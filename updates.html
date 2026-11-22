@@ -48,6 +48,26 @@
 
 <!-- 판을 낼 때 맨 위에 <li class="rel" id="v<판>"> 하나를 더한다. 항목은 해요체 한 줄. -->
 <ol class="log">
+  <li class="rel" id="v1.0.7">
+    <div>
+      <h2>1.0.7</h2>
+      <p class="when"><time datetime="2026-11-22">2026-11-22</time></p>
+    </div>
+    <div>
+      <h3>팩</h3>
+      <ul>
+        <li>「+ 기종」 에서 ES-DE 의 <code>gamelists/&lt;기종&gt;/gamelist.xml</code> 을 메타 파일로 고르면, 옆 <code>downloaded_media/&lt;기종&gt;/</code> 에서 롬 이름으로 표지 · 로고 · 타이틀 · 스크린샷 · 영상 · 3D 박스 · 카트리지 · 디스크 그림을 찾아 팩으로 가져와요. 전에는 ES-DE gamelist 에 그림 자리가 안 적혀 있어 제목만 오고 그림은 하나도 안 왔어요. gamelist 에 적힌 게임의 그림만 찾아요.</li>
+        <li>「+ 기종」 에서 gamelist.xml 의 다른 그림 태그도 읽어요 — <code>&lt;wheel&gt;</code> 은 로고, <code>&lt;boxart&gt;</code> 는 표지, <code>&lt;titleshot&gt;</code> 은 타이틀, <code>&lt;cartridge&gt;</code> 는 카트리지 · 디스크로 가져와요. 같은 칸에 태그가 둘이면 <code>&lt;thumbnail&gt;</code> · <code>&lt;marquee&gt;</code> 가 먼저예요.</li>
+        <li>「목록 갱신」 이 롬이 그대로여도 이미 있는 게임의 빈 칸을 채워요. 롬 옆 메타 파일(gamelist.xml · metadata.pegasus.txt)의 제목 · 설명 같은 글과, 팩 그림 폴더(<code>media/&lt;기종&gt;/&lt;종류&gt;/&lt;롬 이름&gt;.*</code>)에 직접 넣은 그림으로 채워요. 이미 있는 값은 안 바꾸고, 반영하기 전에 몇 개를 채울지 물어요. 즐겨찾기는 안 가져와요. 팩 밖 롬 폴더를 그대로 쓰는 기종은 그 폴더의 그림을 팩 그림 폴더로 복사해요.</li>
+        <li>메타 편집에서 지운 글 · 뗀 그림은 「목록 갱신」 이 다시 채우지 않아요(뗀 그림 파일은 전처럼 팩에 남아요).</li>
+        <li>롬 옆 gamelist 가 롬 폴더 안 그림 폴더(<code>images/</code> 같은)를 가리키면, 앱이 그 파일을 다시 쓴 뒤에도 「목록 갱신」 이 그 폴더를 게임으로 담지 않아요.</li>
+      </ul>
+      <h3>AI 도구 연결</h3>
+      <ul>
+        <li>설정 › AI 글 채우기 · 번역 에 「AI 도구 연결(MCP)」 을 더했어요. 켜면 Codex · Claude Code 같은 AI 도구가 켜 둔 앱의 기능을 대신 쓸 수 있어요. 처음엔 꺼져 있고 이 PC 안에서만 열려요. 「Claude Code 명령 복사」 · 「Codex 설정 복사」 단추로 연결 설정을 복사해 그 도구에 넣으면 돼요. 지우기 · 옮기기 · 패치 걸기 같은 일은 앱 창에서 한 번 더 허락해야 하고, 계정 · API 키 · 앱 업데이트는 AI 도구로 못 해요.</li>
+      </ul>
+    </div>
+  </li>
   <li class="rel" id="v1.0.6">
     <div>
       <h2>1.0.6</h2>
